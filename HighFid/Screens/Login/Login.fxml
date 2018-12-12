@@ -18,8 +18,8 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="310.0" text="Meld je aan om te beginnen" />
-      <Button fx:id="btnLogin" layoutX="129.0" layoutY="438.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="25.0" prefWidth="70.0" text="Log in!" />
-      <Button layoutX="212.0" layoutY="438.0" mnemonicParsing="false" text="Registreer" />
+      <Label layoutX="72.0" layoutY="304.0" text="Meld je aan om te beginnen" />
+      <Button fx:id="btnLogin" layoutX="72.0" layoutY="422.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="35.0" prefWidth="268.0" text="Log in!" />
+      <Button layoutX="72.0" layoutY="476.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Registreer" />
    </children>
 </AnchorPane>
