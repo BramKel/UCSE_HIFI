@@ -19,7 +19,7 @@ public class Model {
      * Constructor
      * Creates a new Model
      */
-    Model() {
+    public Model() {
         this.setName("User-Centered Software Engineering");
     }
 
