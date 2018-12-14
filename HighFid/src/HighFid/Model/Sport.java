@@ -7,7 +7,7 @@ import java.sql.Time;
 import java.time.DayOfWeek;
 
 public class Sport {
-    public String name, niveau, wanneer, aanbod, description, quote;
+    public String name, niveau, wanneer;
     public int prijsMetKaart, prijsZonderkaart;
     public DayOfWeek[] days = new DayOfWeek[0];
     public Time[] beginTimes = new Time[0];
@@ -15,15 +15,13 @@ public class Sport {
     //Date[] dates;
 
 
-    public Sport(String name, String quote, String description, String aanbod, String niveau, String wanneer, int prijsMetKaart, int prijsZonderkaart) {
+    public Sport(String name, String niveau, String wanneer, int prijsMetKaart, int prijsZonderkaart) {
         this.name = name;
         this.niveau = niveau;
         this.wanneer = wanneer;
-        this.aanbod =aanbod;
         this.prijsMetKaart = prijsMetKaart;
         this.prijsZonderkaart = prijsZonderkaart;
-        this.description = description;
-        this.quote = quote;
+        AddSession(DayOfWeek.MONDAY, Time.valueOf("19:00:00"), Time.valueOf("19:00:00"));
     }
 
     public Sport() {
@@ -34,12 +32,10 @@ public class Sport {
         fromJSON(JSONSport);
     }
 
+    @SuppressWarnings("unchecked")
     public JSONObject toJSON() {
         JSONObject JSONSport = new JSONObject();
         JSONSport.put("name", this.name);
-        JSONSport.put("quote", this.quote);
-        JSONSport.put("descr", this.description);
-        JSONSport.put("aanbod", this.aanbod);
         JSONSport.put("niveau", this.niveau);
         JSONSport.put("wanneer", this.wanneer);
         JSONSport.put("prijsMetKaart", "" + prijsMetKaart);
@@ -77,9 +73,6 @@ public class Sport {
 
     public boolean fromJSON(JSONObject JSONSport) {
         this.name = (String) JSONSport.get("name");
-        this.quote = (String) JSONSport.get("quote");
-        this.description = (String) JSONSport.get("descr");
-        this.aanbod = (String)JSONSport.get("aanbod");
         this.niveau = (String) JSONSport.get("niveau");
         this.wanneer = (String) JSONSport.get("wanneer");
         this.prijsMetKaart = Integer.parseInt((String) JSONSport.get("prijsMetKaart"));
