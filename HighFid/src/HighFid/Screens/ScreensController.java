@@ -37,7 +37,6 @@ public class ScreensController extends StackPane {
         //ADD NEW SCREENS HERE
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
-        loadScreen("Profile", "Profile/Profile.fxml");
     }
 
     /**
@@ -65,7 +64,6 @@ public class ScreensController extends StackPane {
             Parent loadScreen = myLoader.load();
             ControlledScreen myScreenController = myLoader.getController();
             myScreenController.setScreenParent(this);
-            myScreenController.setModel(_model);
             screens.put(name, loadScreen);
             return true;
         } catch(Exception e) {
@@ -136,9 +134,5 @@ public class ScreensController extends StackPane {
 
     public void showMainMenu(){
         setScreen("MainMenu");
-    }
-
-    public void showProfile() {
-        setScreen("Profile");
     }
 }

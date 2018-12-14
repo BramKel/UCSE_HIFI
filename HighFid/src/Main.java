@@ -1,6 +1,7 @@
 package HighFid;
 
 //Personal Imports
+import HighFid.Model.FileIO.JsonIO;
 import HighFid.Model.Model;
 
 //Java Imports
@@ -10,6 +11,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 import java.sql.Time;
 import java.time.DayOfWeek;
@@ -33,6 +35,19 @@ public class Main extends Application {
     public Main() {
         _controller = new ScreensController(new Model());
         _controller.showLogin();
+
+        Sport s = new Sport("Atletiek","Moeder der sporten!","Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! Blijf en/of word atletisch door de moeder der sporten: atletiek!\n" +
+                "Voor compititie-atleten maar ook voor recreanten.", "Vast avondprogramma", "Beginners tot gevorderden", "Vanaf oktober 2018 tot 31 mei 2019\n" +
+                "Geen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen", 0,2);
+        s.AddSession(DayOfWeek.TUESDAY, new Time(19,0,0), new Time(20,30,0));
+        s.AddSession(DayOfWeek.THURSDAY, new Time(19,0,0), new Time(20,30,0));
+        s.AddSession(DayOfWeek.FRIDAY, new Time(19,0,0), new Time(20,30,0));
+        s.AddSession(DayOfWeek.WEDNESDAY, new Time(19,0,0), new Time(20,30,0));
+        try{
+            JsonIO.saveJSONFile("sports", s.toJSON());
+        }catch(Exception e) {
+
+        }
     }
 
     /**

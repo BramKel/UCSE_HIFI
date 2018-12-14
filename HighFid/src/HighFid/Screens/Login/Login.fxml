@@ -9,25 +9,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="731.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Login.LoginController">
+<AnchorPane prefHeight="731.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Login.LoginController">
    <children>
       <Label layoutX="140.0" layoutY="347.0" text="Login:" />
       <Label layoutX="103.0" layoutY="380.0" text="Wachtwoord:" />
-      <TextField fx:id="txtLogin" layoutX="191.0" layoutY="343.0" promptText="Login" />
-      <PasswordField fx:id="txtPassword" layoutX="191.0" layoutY="376.0" promptText="Wachtwoord" />
+      <TextField fx:id="txtLogin" layoutX="191.0" layoutY="343.0" promptText="Studentennummer" />
+      <PasswordField fx:id="tctPassword" layoutX="191.0" layoutY="376.0" promptText="Password" />
       <Label layoutX="66.0" layoutY="268.0" text="Studentensport Limburg">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
       <Label layoutX="72.0" layoutY="304.0" text="Meld je aan om te beginnen" />
-      <Button fx:id="btnLogin" layoutX="72.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="35.0" prefWidth="268.0" text="Log in!" />
-      <Button fx:id="btnRegister" layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="268.0" text="Registreer" />
+      <Button fx:id="btnLogin" layoutX="72.0" layoutY="422.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="35.0" prefWidth="268.0" text="Log in!" />
+      <Button layoutX="72.0" layoutY="476.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Registreer" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="105.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/logo-ssl-big.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblError" layoutX="133.0" layoutY="410.0" text="De logingegevens zijn fout!" />
    </children>
 </AnchorPane>
