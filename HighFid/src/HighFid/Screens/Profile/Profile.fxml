@@ -7,10 +7,11 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
     <children>
         <fx:include source="../Components/Header/Header.fxml" />
-        <AnchorPane layoutY="49.0" prefHeight="606.0" prefWidth="411.0">
+        <AnchorPane layoutY="49.0" prefHeight="681.0" prefWidth="411.0">
          <children>
             <ImageView fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
             <Region layoutX="14.0" layoutY="30.0" prefHeight="220.0" prefWidth="150.0" style="-fx-background-color: lightgrey;" />
@@ -26,12 +27,53 @@
             <Button layoutX="69.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
             <Button layoutX="69.0" layoutY="427.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je challenges" />
             <Button layoutX="69.0" layoutY="474.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" />
+
+             <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
+                 <graphic>
+                     <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@/Icons/Footer/home.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+             <Button layoutX="78.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Events">
+                 <graphic>
+                     <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@/Icons/Footer/events.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+             <Button layoutX="160.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Cal">
+                 <graphic>
+                     <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@/Icons/Footer/calendar.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+             <Button layoutX="242.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Challenges">
+                 <graphic>
+                     <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@/Icons/Footer/trophy.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+             <Button layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Profiel">
+                 <graphic>
+                     <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@/Icons/Footer/profile.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
          </children></AnchorPane>
-        <AnchorPane layoutY="657.0" prefHeight="75.0" prefWidth="411.0">
-            <children>
-                <fx:include source="../Components/Footer/Footer.fxml" />
-            </children>
-        </AnchorPane>
     </children>
 
 </AnchorPane>

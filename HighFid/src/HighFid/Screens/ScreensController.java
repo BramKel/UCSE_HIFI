@@ -37,6 +37,7 @@ public class ScreensController extends StackPane {
         //ADD NEW SCREENS HERE
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
+        loadScreen("Profile", "Profile/Profile.fxml");
     }
 
     /**
@@ -135,5 +136,9 @@ public class ScreensController extends StackPane {
 
     public void showMainMenu(){
         setScreen("MainMenu");
+    }
+
+    public void showProfile() {
+        setScreen("Profile");
     }
 }
