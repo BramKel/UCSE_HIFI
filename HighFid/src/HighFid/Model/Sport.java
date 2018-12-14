@@ -58,6 +58,9 @@ public class Sport {
 
     public static boolean checkJSON(JSONObject JSONSport) {
         boolean ok = JSONSport.get("name") != null &&
+                JSONSport.get("quote") != null &&
+                JSONSport.get("descr") != null &&
+                JSONSport.get("aanbod") != null &&
                 JSONSport.get("niveau") != null &&
                 JSONSport.get("wanneer") != null &&
                 JSONSport.get("prijsMetKaart") != null &&

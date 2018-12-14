@@ -2,15 +2,11 @@ package HighFid.Screens.MainMenu;
 
 //Personal imports
 import HighFid.Model.Model;
-import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -59,6 +55,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
     public void setModel(Model model) {
         _model = model;
     }
+
     @FXML
     private void showProfile(ActionEvent event) {
         _controller.showProfile();

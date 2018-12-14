@@ -39,6 +39,13 @@ public class SportKaart {
     }
 
     //Public Methods
+    /**
+     * Public function toJSON
+     * Method that converts Sportkaart to JSONObject
+     *
+     * @return JSONObject of the sportkaart
+     */
+    @SuppressWarnings("unchecked")
     public JSONObject toJSON() {
         JSONObject JSONSportkaart = new JSONObject();
         JSONSportkaart.put("skstatus", this.getSkStatus().toString());
@@ -47,6 +54,13 @@ public class SportKaart {
         return JSONSportkaart;
     }
 
+    /**
+     * Public static function checkJSON
+     * Method that checks if Object has all the fields
+     *
+     * @param JSONSportkaart JSONObject that has to be checked
+     * @return true if JSONSportkaart has required fields, false otherwise
+     */
     public static boolean checkJSON(JSONObject JSONSportkaart) {
         boolean ok = JSONSportkaart.get("skstatus") != null &&
                 JSONSportkaart.get("activated") != null &&
@@ -54,6 +68,12 @@ public class SportKaart {
         return ok;
     }
 
+    /**
+     * Private function fromJSON
+     * Method that converts JSONObject to Sportkaart-object
+     *
+     * @param JSONSportkaart The Object to be converted
+     */
     public void fromJSON(JSONObject JSONSportkaart) {
         this.setSkStatus(SK_STATUS.valueOf((String) JSONSportkaart.get("skstatus")));
         this.setActivated((String) JSONSportkaart.get("activated"));

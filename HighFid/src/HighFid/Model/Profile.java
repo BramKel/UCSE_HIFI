@@ -1,5 +1,6 @@
 package HighFid.Model;
 
+//Personal Imports
 import HighFid.Model.FileIO.JsonIO;
 import org.json.simple.JSONObject;
 
@@ -75,6 +76,10 @@ public class Profile {
         }
     }
 
+    /**
+     * Public function logout
+     * Resets the user profile
+     */
     public void logout(){
         initialize();
     }

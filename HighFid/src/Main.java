@@ -4,16 +4,11 @@ package HighFid;
 import HighFid.Model.Model;
 
 //Java Imports
-import HighFid.Model.Sport;
 import HighFid.Screens.ScreensController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.sql.Time;
-import java.time.DayOfWeek;
-import java.util.Date;
 
 /**
  * HighFid
