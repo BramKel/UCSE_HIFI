@@ -14,6 +14,7 @@ public class Model {
 
     //Private members
     private String name;
+    private Profile profile;
     private Sport sport;
 
     /**
@@ -21,16 +22,23 @@ public class Model {
      * Creates a new Model
      */
     public Model() {
-        this.fromJSON("Test.json");
+        this.setProfile(new Profile());
+
+        //this.fromJSON("Test.json");
     }
 
     //Getters & Setters
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
+    }
+    public Profile getProfile() {
+        return profile;
+    }
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     //Public functions
@@ -90,7 +98,7 @@ public class Model {
                 return false;
             }
         } catch(Exception e){
-            System.out.println("Model: romJSON: " + e.getMessage());
+            System.out.println("Model: fromJSON: " + e.getMessage());
             return false;
         }
     }
