@@ -8,7 +8,7 @@ Account Student met sportkaart:
 
 Account Student zonder sportkaart:
 
-        Login: StudentNoSk
+        Login: StudentNoSK
         
         Password: Test123
 
