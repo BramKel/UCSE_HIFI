@@ -75,6 +75,10 @@ public class Profile {
         }
     }
 
+    public void logout(){
+        initialize();
+    }
+
     /**
      * Public function toJSON
      * Method that converts Profile to JSONObject

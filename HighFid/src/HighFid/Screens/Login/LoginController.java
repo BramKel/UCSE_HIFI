@@ -54,11 +54,11 @@ public class LoginController implements Initializable, ControlledScreen {
      * Public function setScreenParent
      * Sets the Controlling parent for navigation
      *
-     * @param screenParent the controller that handles navigation
+     * @param screenPage the controller that handles navigation
      */
     @Override
-    public void setScreenParent(ScreensController screenParent) {
-        _controller = screenParent;
+    public void setScreenParent(ScreensController screenPage) {
+        _controller = screenPage;
     }
 
     //Setter
@@ -67,15 +67,29 @@ public class LoginController implements Initializable, ControlledScreen {
     }
 
     //FXML methods
+    /**
+     * Private method handleLoginButton
+     * Handles the login process
+     *
+     * @param event unused
+     */
     @FXML
     private void handleLoginButton(ActionEvent event) {
         String login = txtLogin.getText();
         String pass = txtPassword.getText();
         if(this._model.getProfile().checkProfile(login, pass)) {
             lblError.setVisible(false);
-            _model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json");
-            System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
-            showMainMenu();
+            txtLogin.setText("");
+            txtPassword.setText("");
+            if(_model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json")) {
+                System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
+                showMainMenu();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fout");
+                alert.setHeaderText("Het JSON-bestand kan niet worden gevonden, vraag hulp.");
+                alert.showAndWait();
+            }
         } else {
             lblError.setVisible(true);
             txtLogin.setText("");
@@ -83,11 +97,17 @@ public class LoginController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * Private method handleRegisterButton
+     * Handles the registration process
+     *
+     * @param event unused
+     */
     @FXML
     private void handleRegisterButton(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Fout");
-        alert.setHeaderText("Sorry, deze feature is niet uitgewerkt, porbeer iets anders.");
+        alert.setHeaderText("Sorry, deze feature is niet uitgewerkt, probeer iets anders.");
         alert.showAndWait();
     }
 

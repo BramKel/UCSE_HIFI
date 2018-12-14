@@ -46,7 +46,7 @@
                   </ImageView>
                  </graphic>
             </Button>
-             <Button layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Profiel">
+             <Button layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Profiel">
                  <graphic>
                      <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                          <image>
