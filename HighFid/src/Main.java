@@ -33,10 +33,6 @@ public class Main extends Application {
     public Main() {
         _controller = new ScreensController(new Model());
         _controller.showLogin();
-
-        Sport s  = new Sport();
-        s.fromJSON("atletiek.json");
-        int i = 0;
     }
 
     /**

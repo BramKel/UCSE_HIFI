@@ -14,13 +14,14 @@ public class Model {
 
     //Private members
     private String name;
+    private Sport sport;
 
     /**
      * Constructor
      * Creates a new Model
      */
     public Model() {
-        this.setName("User-Centered Software Engineering");
+        this.fromJSON("Test.json");
     }
 
     //Getters & Setters
@@ -45,6 +46,7 @@ public class Model {
         try{
             JSONObject JSONModel = new JSONObject();
             JSONModel.put("name", this.getName());
+            JSONModel.put("sport", sport.toJSON());
             JsonIO.saveJSONFile(fileName, JSONModel);
             return true;
         }catch(Exception e){
@@ -61,8 +63,12 @@ public class Model {
      * @return true if JSONModel has required fields, false otherwise
      */
     public static boolean checkJSON(JSONObject JSONModel) {
-        return JSONModel.get("name") != null;
-        //Check deeper classes via CLASS.checkJSON(JSONModel.get("what you need"))
+        boolean ok = JSONModel.get("name") != null &&
+                JSONModel.get("sport") != null;
+        if(ok) {
+            ok = Sport.checkJSON((JSONObject) JSONModel.get("sport"));
+        }
+        return ok;
     }
 
     /**
@@ -78,6 +84,7 @@ public class Model {
             JSONModel = JsonIO.readJSONFile(fileName);
             if (Model.checkJSON(JSONModel)) {
                 this.setName((String) JSONModel.get("name"));
+                this.sport = new Sport((JSONObject) JSONModel.get("sport"));
                 return true;
             } else {
                 return false;

@@ -1,0 +1,17 @@
+{
+  "name": "User-Centered Software Engineering",
+  "sport": {
+    "prijsZonderKaart": "0",
+    "prijsMetKaart": "0",
+    "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nGeen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen\n",
+    "name": "Atletiek",
+    "daysList": [
+      {
+        "beginTime": "19:00:00",
+        "endTime": "19:00:00",
+        "day": "MONDAY"
+      }
+    ],
+    "niveau": "Vast avondprogramma"
+  }
+}
