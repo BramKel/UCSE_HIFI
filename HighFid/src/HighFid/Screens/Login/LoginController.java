@@ -73,10 +73,9 @@ public class LoginController implements Initializable, ControlledScreen {
         String pass = txtPassword.getText();
         if(this._model.getProfile().checkProfile(login, pass)) {
             lblError.setVisible(false);
-            _model.getProfile().toJSON(_model.getProfile().getId().toString() + ".json");
-            //_model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json");
-            //System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
-            //showMainMenu();
+            _model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json");
+            System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
+            showMainMenu();
         } else {
             lblError.setVisible(true);
             txtLogin.setText("");
