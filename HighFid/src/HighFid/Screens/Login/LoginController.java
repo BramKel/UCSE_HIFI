@@ -83,6 +83,7 @@ public class LoginController implements Initializable, ControlledScreen {
             txtPassword.setText("");
             if(_model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json")) {
                 System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
+                _controller.setLogin(true);
                 showMainMenu();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

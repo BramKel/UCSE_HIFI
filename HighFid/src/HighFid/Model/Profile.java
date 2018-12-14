@@ -19,6 +19,7 @@ public class Profile {
     private ID_types id;
     private String fName;
     private String lName;
+    private String age;
     private String org;
     private SportKaart sportKaart;
 
@@ -98,6 +99,7 @@ public class Profile {
             JSONProfile.put("id", this.getId().toString());
             JSONProfile.put("fname", this.getfName());
             JSONProfile.put("lname", this.getlName());
+            JSONProfile.put("age", this.getAge());
             JSONProfile.put("org", this.getOrg());
             JSONProfile.put("sportkaart", this.sportKaart.toJSON());
             JsonIO.saveJSONFile(fileName, JSONProfile);
@@ -119,6 +121,7 @@ public class Profile {
         boolean ok = JSONProfile.get("id") != null &&
                 JSONProfile.get("fname") != null &&
                 JSONProfile.get("lname") != null &&
+                JSONProfile.get("age") != null &&
                 JSONProfile.get("org") != null &&
                 JSONProfile.get("sportkaart") != null;
         if(ok) {
@@ -142,6 +145,7 @@ public class Profile {
                 this.setId(ID_types.valueOf((String) JSONProfile.get("id")));
                 this.setfName((String) JSONProfile.get("fname"));
                 this.setlName((String) JSONProfile.get("lname"));
+                this.setAge((String) JSONProfile.get("age"));
                 this.setOrg((String) JSONProfile.get("org"));
                 this.getSportKaart().fromJSON((JSONObject) JSONProfile.get("sportkaart"));
                 return true;
@@ -172,6 +176,12 @@ public class Profile {
     }
     public void setlName(String lName) {
         this.lName = lName;
+    }
+    public String getAge() {
+        return age;
+    }
+    public void setAge(String age) {
+        this.age = age;
     }
     public String getOrg() {
         return org;

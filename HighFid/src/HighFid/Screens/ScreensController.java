@@ -27,6 +27,9 @@ public class ScreensController extends StackPane {
     private Model _model;
     private HashMap<String, Node> screens = new HashMap<>();
 
+    //Update components when neccesary
+    private boolean newLogin;
+
     /**
      * Controller
      * Creates a new ScreensController
@@ -34,10 +37,17 @@ public class ScreensController extends StackPane {
     public ScreensController(Model model) {
         super();
         _model = model;
+        newLogin = true;
+
         //ADD NEW SCREENS HERE
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
         loadScreen("Profile", "Profile/Profile.fxml");
+    }
+
+    //Setter
+    public void setLogin(boolean login) {
+        newLogin = login;
     }
 
     /**
@@ -139,6 +149,13 @@ public class ScreensController extends StackPane {
     }
 
     public void showProfile() {
+        if(newLogin){
+            //SET LOGIN TRIGGER
+            unloadScreen("Profile");
+            loadScreen("Profile", "Profile/Profile.fxml");
+            System.out.println("Reloaded profile page");
+            newLogin = false;
+        }
         setScreen("Profile");
     }
 }
