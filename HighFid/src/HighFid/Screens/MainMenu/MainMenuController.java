@@ -2,6 +2,7 @@ package HighFid.Screens.MainMenu;
 
 //Personal imports
 import HighFid.Model.Model;
+import HighFid.Screens.Components.Footer.FooterController;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
@@ -21,6 +22,9 @@ public class MainMenuController implements Initializable, ControlledScreen {
     //Private members
     private ScreensController _controller;
     private Model _model;
+
+    @FXML
+    private FooterController footerController;
 
     /**
      * Public function initialize

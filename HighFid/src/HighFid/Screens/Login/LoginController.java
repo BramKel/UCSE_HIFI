@@ -9,7 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 //Java Imports
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,6 +34,8 @@ public class LoginController implements Initializable, ControlledScreen {
     private TextField txtLogin;
     @FXML
     private TextField txtPassword;
+    @FXML
+    private Label lblError;
 
     /**
      * Public function initialize
@@ -40,7 +46,8 @@ public class LoginController implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        lblError.setTextFill(Color.web("#F00"));
+        lblError.setVisible(false);
     }
 
     /**
@@ -59,14 +66,33 @@ public class LoginController implements Initializable, ControlledScreen {
         _model = model;
     }
 
-    //FXML mthods
+    //FXML methods
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-
+    private void handleLoginButton(ActionEvent event) {
+        String login = txtLogin.getText();
+        String pass = txtPassword.getText();
+        if(this._model.getProfile().checkProfile(login, pass)) {
+            lblError.setVisible(false);
+            _model.getProfile().toJSON(_model.getProfile().getId().toString() + ".json");
+            //_model.getProfile().fromJSON(_model.getProfile().getId().toString() + ".json");
+            //System.out.println("Logged in as: " + _model.getProfile().getfName() + " " + _model.getProfile().getlName());
+            //showMainMenu();
+        } else {
+            lblError.setVisible(true);
+            txtLogin.setText("");
+            txtPassword.setText("");
+        }
     }
 
     @FXML
-    private void showMainMenu(ActionEvent event){
+    private void handleRegisterButton(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Fout");
+        alert.setHeaderText("Sorry, deze feature is niet uitgewerkt, porbeer iets anders.");
+        alert.showAndWait();
+    }
+
+    private void showMainMenu(){
         _controller.showMainMenu();
     }
 }
