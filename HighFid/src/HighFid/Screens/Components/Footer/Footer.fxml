@@ -3,11 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="103.0" text="Menu" />
-      <Button layoutX="103.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="103.0" text="Zoeken" />
-      <Button layoutX="206.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="103.0" text="Challenges" />
-      <Button layoutX="309.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="102.0" text="Profiel" />
+      <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Hoofd" />
+      <Button layoutX="82.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Events" />
+      <Button layoutX="164.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Kalender" />
+      <Button layoutX="246.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Challenges" />
+      <Button layoutX="328.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Profiel" />
    </children>
 </AnchorPane>
