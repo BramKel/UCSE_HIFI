@@ -2,6 +2,8 @@ package HighFid.Screens;
 
 //Personal Imports
 import HighFid.Model.Model;
+import HighFid.Model.Sport;
+import HighFid.Screens.SportDetail.SportDetailController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -148,6 +150,19 @@ public class ScreensController extends StackPane {
         setScreen("MainMenu");
     }
 
+    public void ShowSportDetail(String name) {
+        try{
+            Sport s = _model.sportByName(name);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SportDetail/SportDetail.fxml"));
+            loader.load();
+            SportDetailController contr = (SportDetailController) loader.getController();
+            contr.ShowSport(s);
+            loadScreen("SportDetail", "SportDetail/SportDetail.fxml");
+            setScreen("SportDetail");
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
     public void showProfile() {
         if(newLogin){
             //SET LOGIN TRIGGER

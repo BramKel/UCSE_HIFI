@@ -12,6 +12,7 @@ public class Sport {
     public DayOfWeek[] days = new DayOfWeek[0];
     public Time[] beginTimes = new Time[0];
     public Time[] endTimes = new Time[0];
+    public String[] places = new String[0];
     //Date[] dates;
 
 
@@ -50,6 +51,7 @@ public class Sport {
             JSONDay.put("day", days[i].name());
             JSONDay.put("beginTime", beginTimes[i].toString());
             JSONDay.put("endTime", endTimes[i].toString());
+            JSONDay.put("place", places[i]);
             dayList.add(JSONDay);
         }
         JSONSport.put("daysList", dayList);
@@ -93,20 +95,23 @@ public class Sport {
             DayOfWeek day = DayOfWeek.valueOf((String) JSONDay.get("day"));
             Time begin = Time.valueOf((String) JSONDay.get("beginTime"));
             Time end = Time.valueOf((String) JSONDay.get("endTime"));
-            AddSession(day,begin,end);
+            String place = (String) JSONDay.get("place");
+            AddSession(day,begin,end, place);
         }
         return true;
     }
 
 
-    public void AddSession(DayOfWeek day, Time begin, Time end) {
+    public void AddSession(DayOfWeek day, Time begin, Time end, String place) {
         DayOfWeek[] newDays = new DayOfWeek[days.length+1];
         Time[] newBeginTimes = new Time[beginTimes.length+1];
         Time[] newendTimes = new Time[endTimes.length+1];
+        String[] newPlaces = new String[places.length + 1];
         for(int i = 0; i < days.length; i++) {
             newDays[i] = days[i];
             newBeginTimes[i] = beginTimes[i];
             newendTimes[i] = endTimes[i];
+            newPlaces[i] = places[i];
         }
         newDays[days.length] = day;
         days = newDays;
@@ -114,7 +119,10 @@ public class Sport {
         newBeginTimes[beginTimes.length] = begin;
         beginTimes = newBeginTimes;
 
-        newendTimes[endTimes.length] = begin;
+        newendTimes[endTimes.length] = end;
         endTimes = newendTimes;
+
+        newPlaces[places.length] = place;
+        places = newPlaces;
     }
 }

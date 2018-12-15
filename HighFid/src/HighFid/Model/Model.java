@@ -2,7 +2,11 @@ package HighFid.Model;
 
 //Personal Imports
 import HighFid.Model.FileIO.JsonIO;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import java.sql.Time;
+import java.time.DayOfWeek;
 
 /**
  * Class Model
@@ -15,7 +19,7 @@ public class Model {
     //Private members
     private String name;
     private Profile profile;
-    private Sport sport;
+    private Sport[] sports = new Sport[0];
 
     /**
      * Constructor
@@ -23,7 +27,7 @@ public class Model {
      */
     public Model() {
         this.setProfile(new Profile());
-
+        ReadSports();
         //this.fromJSON("Test.json");
     }
 
@@ -41,6 +45,31 @@ public class Model {
         this.profile = profile;
     }
 
+    public void ReadSports() {
+        try{
+            JSONObject sports = JsonIO.readJSONFile("sports.json");
+            JSONArray sportsList = ((JSONArray) sports.get("sportsList"));
+            for(int i = 0; i < sportsList.size(); ++i) {
+                JSONObject JSONSport = ((JSONObject) sportsList.get(i));
+                Sport s = new Sport();
+                s.fromJSON(JSONSport);
+                AddSport(s);
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+        }
+
+    }
+    private void AddSport(Sport s) {
+        Sport[] newSports = new Sport[sports.length + 1];
+        for(int i = 0; i < sports.length; i++) {
+            newSports[i] = sports[i];
+        }
+        newSports[sports.length] = s;
+        sports = newSports;
+    }
+
     //Public functions
     /**
      * Public function toJSON
@@ -54,7 +83,7 @@ public class Model {
         try{
             JSONObject JSONModel = new JSONObject();
             JSONModel.put("name", this.getName());
-            JSONModel.put("sport", sport.toJSON());
+            //JSONModel.put("sport", sport.toJSON());
             JsonIO.saveJSONFile(fileName, JSONModel);
             return true;
         }catch(Exception e){
@@ -78,6 +107,13 @@ public class Model {
         }
         return ok;
     }
+    public Sport sportByName(String name) {
+        for(int i = 0; i < sports.length; i++) {
+            if(sports[i].name.compareTo(name) == 0)
+                return sports[i];
+        }
+        return new Sport();
+    }
 
     /**
      * Private function fromJSON
@@ -92,7 +128,7 @@ public class Model {
             JSONModel = JsonIO.readJSONFile(fileName);
             if (Model.checkJSON(JSONModel)) {
                 this.setName((String) JSONModel.get("name"));
-                this.sport = new Sport((JSONObject) JSONModel.get("sport"));
+                //this.sport = new Sport((JSONObject) JSONModel.get("sport"));
                 return true;
             } else {
                 return false;

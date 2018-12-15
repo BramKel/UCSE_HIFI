@@ -1,1 +1,58 @@
-{"daysList":[{"beginTime":"19:00:00","endTime":"19:00:00","day":"TUESDAY"},{"beginTime":"19:00:00","endTime":"19:00:00","day":"THURSDAY"},{"beginTime":"19:00:00","endTime":"19:00:00","day":"FRIDAY"},{"beginTime":"19:00:00","endTime":"19:00:00","day":"WEDNESDAY"}],"descr":"Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! Blijf en\/of word atletisch door de moeder der sporten: atletiek!\nVoor compititie-atleten maar ook voor recreanten.","prijsZonderKaart":"2","quote":"Moeder der sporten!","prijsMetKaart":"0","wanneer":"Vanaf oktober 2018 tot 31 mei 2019\nGeen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen","name":"Atletiek","aanbod":"Vast avondprogramma","niveau":"Beginners tot gevorderden"}
+{
+  "sportsList": [
+    {
+      "daysList": [
+        {
+          "beginTime": "19:00:00",
+          "endTime": "20:30:00",
+          "day": "TUESDAY",
+          "place": "Demerstrand, Diepenbeek"
+        },
+        {
+          "beginTime": "19:00:00",
+          "endTime": "20:30:00",
+          "day": "THURSDAY",
+          "place": "Demerstrand, Diepenbeek"
+        },
+        {
+          "beginTime": "19:00:00",
+          "endTime": "20:30:00",
+          "day": "FRIDAY",
+          "place": "Demerstrand, Diepenbeek"
+        },
+        {
+          "beginTime": "18:00:00",
+          "endTime": "19:30:00",
+          "day": "WEDNESDAY",
+          "place": "Demerstrand, Diepenbeek"
+        }
+      ],
+      "descr": "Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! Blijf en/of word atletisch door de moeder der sporten: atletiek!\nVoor compititie-atleten maar ook voor recreanten.",
+      "prijsZonderKaart": "2",
+      "quote": "Moeder der sporten!",
+      "prijsMetKaart": "0",
+      "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nGeen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen",
+      "name": "Atletiek",
+      "aanbod": "Vast avondprogramma",
+      "niveau": "Beginners tot gevorderden"
+    },
+{
+      "daysList": [
+        {
+          "beginTime": "20:30:00",
+          "endTime": "22:00:00",
+          "day": "MONDAY",
+          "place": "Fitlink Diepenbeek"
+        }
+      ],
+      "descr": "3 tegen 3 basketbal is een vorm van het 'echte' spel, waarbij er met 3 spelers per team wordt gespeeld op een kleiner veld. Het is de grootste stedelijke team sport van de wereld!\nZin om met medestudenten te basketten op een aangename, recreatieve manier? Aarzel niet en kom zeker eens meespelen!",
+      "prijsZonderKaart": "2",
+      "quote": "LET’S SHOOT SOME HOOPS!",
+      "prijsMetKaart": "0",
+      "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nGeen les op feest- en brugdagen, 19 november 2018 (jobbeurs), tijdens de kerstvakantie en 2de week paasvakantie (15/4).",
+      "name": "Basketbal",
+      "aanbod": "Vast avondprogramma",
+      "niveau": "Beginners tot gevorderden"
+    }
+  ]
+}
