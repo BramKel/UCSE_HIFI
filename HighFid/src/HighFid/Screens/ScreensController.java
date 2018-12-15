@@ -43,11 +43,20 @@ public class ScreensController extends StackPane {
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
         loadScreen("Profile", "Profile/Profile.fxml");
+        loadScreen("SportKaart", "Sportkaart/SportKaart.fxml");
     }
 
     //Setter
     public void setLogin(boolean login) {
         newLogin = login;
+        if(newLogin){
+            unloadScreen("Profile");
+            loadScreen("Profile", "Profile/Profile.fxml");
+            unloadScreen("SportKaart");
+            loadScreen("SportKaart", "SportKaart/SportKaart.fxml");
+            System.out.println("Reloaded");
+            newLogin = false;
+        }
     }
 
     /**
@@ -149,13 +158,10 @@ public class ScreensController extends StackPane {
     }
 
     public void showProfile() {
-        if(newLogin){
-            //SET LOGIN TRIGGER
-            unloadScreen("Profile");
-            loadScreen("Profile", "Profile/Profile.fxml");
-            System.out.println("Reloaded profile page");
-            newLogin = false;
-        }
         setScreen("Profile");
+    }
+
+    public void showSportKaart() {
+        setScreen("SportKaart");
     }
 }
