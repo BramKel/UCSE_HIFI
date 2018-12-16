@@ -8,6 +8,7 @@ import HighFid.Screens.ScreensController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -28,6 +29,9 @@ public class Main extends Application {
     public Main() {
         _controller = new ScreensController(new Model());
         _controller.showLogin();
+
+        String path = "Sports/Atletiek.png";
+        Image img = new Image(path);
     }
 
     /**

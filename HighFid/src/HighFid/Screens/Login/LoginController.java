@@ -111,7 +111,7 @@ public class LoginController implements Initializable, ControlledScreen {
         alert.setHeaderText("Sorry, deze feature is niet uitgewerkt, probeer iets anders.");
         alert.showAndWait();
     }
-
+    @FXML
     private void showMainMenu(){
         _controller.showMainMenu();
     }

@@ -2,6 +2,8 @@ package HighFid.Screens;
 
 //Personal Imports
 import HighFid.Model.Model;
+import HighFid.Model.Sport;
+import HighFid.Screens.SportDetail.SportDetailController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -29,6 +31,10 @@ public class ScreensController extends StackPane {
 
     //Update components when neccesary
     private boolean newLogin;
+
+    private String[] screenHistory = new String[0];
+
+
 
     /**
      * Controller
@@ -126,13 +132,35 @@ public class ScreensController extends StackPane {
                         new KeyFrame(new Duration(200), new KeyValue(opacity, 1.0)));
                 fadeIn.play();
             }
+            AddToScreenHistory(name);
             return true;
         } else {
             System.out.println("Screen hasn't been loaded!");
             return false;
         }
     }
-
+    private void AddToScreenHistory(String name ) {
+        if(screenHistory.length == 0 || name.compareTo(screenHistory[screenHistory.length - 1]) != 0)
+        {
+            int amount = screenHistory.length;
+            String []newScreens = new String[amount + 1];
+            for(int i = 0; i < amount; i++) {
+                newScreens[i] = screenHistory[i];
+            }
+            newScreens[amount] = name;
+            screenHistory = newScreens;
+        }
+    }
+    public void goToPreviousScreen()
+    {
+        int amount = screenHistory.length - 1;
+        String[] newScreens = new String[amount];
+        for(int i = 0; i < amount; i++) {
+            newScreens[i] = screenHistory[i];
+        }
+        screenHistory = newScreens;
+        setScreen(screenHistory[amount-1]);
+    }
     /**
      * Public function unloadScreen
      * Removes a given screen from the collection
@@ -158,6 +186,25 @@ public class ScreensController extends StackPane {
         setScreen("MainMenu");
     }
 
+    public void ShowSportDetail(String name) {
+        if(screens.containsKey("SportDetail" + name))
+            screens.remove("SportDetail" + name);
+
+        try{
+            Sport s = _model.sportByName(name);
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SportDetail/SportDetail.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((SportDetailController) myScreenController).ShowSport(s);
+            screens.put("SportDetail" + name, loadScreen);
+
+            setScreen("SportDetail"+name);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
     public void showProfile() {
         setScreen("Profile");
     }

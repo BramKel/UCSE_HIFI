@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
+    <children>
+      <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
+         <children>
+            <Label fx:id="title" alignment="CENTER" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="360.0" text="Atletiek">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="backBtn" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Icons/General/back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+        <AnchorPane layoutY="50.0" prefHeight="681.0" prefWidth="411.0" style="-fx-background-color: #e8e8e8;">
+            <children>
+                <Button disable="true" layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
+                    <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="66.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/Icons/Footer/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button disable="true" layoutX="78.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Events">
+                    <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/Icons/Footer/events.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button disable="true" layoutX="160.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Cal">
+                    <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/Icons/Footer/calendar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button disable="true" layoutX="242.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Challenges">
+                    <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/Icons/Footer/trophy.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button disable="true" layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Profiel">
+                    <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/Icons/Footer/profile.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children></AnchorPane>
+      <ScrollPane layoutY="50.0" minHeight="608.0" minWidth="411.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+          <AnchorPane fx:id="anchorPane" maxWidth="393.0" minWidth="393.0" prefWidth="393.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" layoutX="96.5" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image fx:id="image" url="@/Sports/Atletiek.png" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="vbox" layoutX="5.0" layoutY="260.0" prefWidth="393.0">
+                     <children>
+                        <Label text="Beschrijving:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="descriptionContent" maxWidth="383.0" text="Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! Blijf en/of word atletisch door de moeder der sporten: atletiek!Voor compititie-atleten maar ook voor recreanten." wrapText="true" />
+                        <Label text="Aanbod:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="aanbodContent" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Vast avondprogramma" />
+                        <Label text="Niveau:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="niveauContent" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Beginners tot gevorderden" />
+                        <Label text="Wanneer:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="wanneerContent" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Vanaf oktober 2018 tot 31 mei 2019. Geen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen" wrapText="true" />
+                        <Label layoutX="10.0" layoutY="174.0" text="Prijs:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="prijsContent" layoutX="10.0" layoutY="201.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Met sportkaart gratis / zonder sportkaart €2 per les" wrapText="true" />
+                        <Label layoutX="10.0" layoutY="232.0" text="Data:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="dayContent" layoutX="5.0" minWidth="100.0" text="Dagen" />
+                              <Label fx:id="timeContent" minWidth="120.0" text="Tijden" />
+                              <Label fx:id="placeContent" minWidth="160.0" text="Demerstrand, Diepenbeek" wrapText="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

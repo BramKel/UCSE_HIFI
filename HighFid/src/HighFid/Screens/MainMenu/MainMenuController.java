@@ -5,12 +5,14 @@ import HighFid.Model.Model;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 //Java Imports
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,6 +29,8 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
     @FXML AnchorPane anchorPane;
     @FXML Pane addPane;
+    @FXML Pane atletiekPane;
+    @FXML Pane basketPane;
     /**
      * Public function initialize
      * Initialize the screen
@@ -36,8 +40,20 @@ public class MainMenuController implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(anchorPane.getMinWidth());
         addPane.setVisible(false);
+
+        atletiekPane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                _controller.ShowSportDetail("Atletiek");
+            }
+        });
+        basketPane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                _controller.ShowSportDetail("Basketbal");
+            }
+        });
     }
 
     /**
@@ -60,4 +76,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
     private void showProfile(ActionEvent event) {
         _controller.showProfile();
     }
+    @FXML
+    private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
+
 }
