@@ -117,5 +117,7 @@ public class ChallengeDetailController implements Initializable, ControlledScree
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
     @FXML
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
+    @FXML
+    private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
 
 }

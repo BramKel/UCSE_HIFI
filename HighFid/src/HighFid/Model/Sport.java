@@ -101,6 +101,67 @@ public class Sport {
         return true;
     }
 
+    private String DayToStr(DayOfWeek day) {
+        String result = "";
+        switch(day) {
+            case MONDAY:
+                result = "Maandag";
+                break;
+            case TUESDAY:
+                result ="Dinsdag";
+                break;
+            case WEDNESDAY:
+                result = "Woensdag";
+                break;
+            case THURSDAY:
+                result = "Donderdag";
+                break;
+            case FRIDAY:
+                result = "Vrijdag";
+                break;
+            case SATURDAY:
+                result = "Zaterdag";
+                break;
+            case SUNDAY:
+                result = "Zondag";
+                break;
+        }
+        return result;
+    }
+
+    public boolean ContainsSearchTerm(String searchTerm) {
+        searchTerm = searchTerm.toLowerCase();
+        if(name.toLowerCase().contains(searchTerm))
+            return true;
+        if(quote.toLowerCase().contains(searchTerm))
+            return true;
+        if(aanbod.toLowerCase().contains(searchTerm))
+            return true;
+        if(niveau.toLowerCase().contains(searchTerm))
+            return true;
+        if(wanneer.toLowerCase().contains(searchTerm))
+            return true;
+        if((prijsMetKaart == 0 || prijsZonderkaart == 0) && searchTerm.compareTo("gratis") == 0)
+            return true;
+        for(int i = 0; i < days.length; i++) {
+            if(DayToStr(days[i]).toLowerCase().contains(searchTerm))
+                return true;
+            if(beginTimes[i].toString().contains(searchTerm))
+                return true;
+            if(endTimes[i].toString().contains(searchTerm))
+                return true;
+            if(places[i].toLowerCase().contains(searchTerm))
+                return true;
+        }
+        return false;
+    }
+    public boolean CheckPlace(String place) {
+        for(int i = 0; i < places.length; i++) {
+            if(places[i].toLowerCase().contains(place.toLowerCase()))
+                return true;
+        }
+        return false;
+    }
 
     public void AddSession(DayOfWeek day, Time begin, Time end, String place) {
         DayOfWeek[] newDays = new DayOfWeek[days.length+1];
