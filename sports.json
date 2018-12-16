@@ -9,6 +9,12 @@
           "place": "Demerstrand, Diepenbeek"
         },
         {
+          "beginTime": "18:00:00",
+          "endTime": "19:30:00",
+          "day": "WEDNESDAY",
+          "place": "Demerstrand, Diepenbeek"
+        },
+        {
           "beginTime": "19:00:00",
           "endTime": "20:30:00",
           "day": "THURSDAY",
@@ -18,12 +24,6 @@
           "beginTime": "19:00:00",
           "endTime": "20:30:00",
           "day": "FRIDAY",
-          "place": "Demerstrand, Diepenbeek"
-        },
-        {
-          "beginTime": "18:00:00",
-          "endTime": "19:30:00",
-          "day": "WEDNESDAY",
           "place": "Demerstrand, Diepenbeek"
         }
       ],

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -30,9 +30,9 @@
       </Pane>
         <AnchorPane layoutY="50.0" prefHeight="681.0" prefWidth="411.0" style="-fx-background-color: #e8e8e8;">
             <children>
-                <Button disable="true" layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
+                <Button disable="true" layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
                     <graphic>
-                        <ImageView fitHeight="67.0" fitWidth="66.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@/Icons/Footer/home.png" />
                             </image>
@@ -66,7 +66,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button disable="true" layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Profiel">
+                <Button disable="true" layoutX="324.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Profiel">
                     <graphic>
                         <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -149,11 +149,15 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven">
+                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Uitschrijven" visible="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
         </content>

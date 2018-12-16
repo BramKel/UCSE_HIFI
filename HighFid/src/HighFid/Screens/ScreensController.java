@@ -5,6 +5,7 @@ import HighFid.Model.Model;
 import HighFid.Model.Sport;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.SportDetail.SportDetailController;
+import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -230,6 +231,25 @@ public class ScreensController extends StackPane {
             System.out.println(e.toString());
         }
     }
+    public void showSportEnrollment(String name) {
+        if(screens.containsKey("SportEnrollment" + name))
+            screens.remove("SportEnrollment" + name);
+        try {
+            Sport s = _model.sportByName(name);
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SportEnrolment/SportEnrolment.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((SportEnrolmentController) myScreenController).ShowSport(s);
+            screens.put("SportEnrollment" + name, loadScreen);
+
+            setScreen("SportEnrollment"+name);
+        } catch (Exception e) {
+            System.out.println("ScreensController: showSportEnrollment, Error message: " + e.getMessage());
+        }
+    }
+
     public void showProfile() {
         setScreen("Profile");
     }
@@ -241,5 +261,4 @@ public class ScreensController extends StackPane {
     public void showEnrollment() {
         setScreen("Enrolment");
     }
-
 }
