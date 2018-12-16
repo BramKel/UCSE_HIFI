@@ -106,6 +106,7 @@ public class CalendarController implements Initializable, ControlledScreen {
 
             String place = "";
             String name = "";
+            Enrolment.ENROLMENT_TYPE r = Enrolment.ENROLMENT_TYPE.NONE;
 
             for (int j = 0; j < enrolls.length; j++) {
                 int maand = enrolls[j].day.getMonth() + 1;
@@ -113,7 +114,15 @@ public class CalendarController implements Initializable, ControlledScreen {
 
                 if (month == 0 && maand == 12) {
                     if (dag - 1 == i) {
-                        name = enrolls[j].sport.name;
+
+                        if (enrolls[j].type == Enrolment.ENROLMENT_TYPE.SPORT) {
+                            r = Enrolment.ENROLMENT_TYPE.SPORT;
+                            name = enrolls[j].sport.name;
+                        } else {
+                            r = Enrolment.ENROLMENT_TYPE.EVENT;
+                            name = enrolls[j].event.naam;
+                        }
+
                         place = enrolls[j].place;
                         final String n = name;
                         session = true;
@@ -128,7 +137,11 @@ public class CalendarController implements Initializable, ControlledScreen {
                 } else if (month == maand) {
                     if (dag - 1 == i) {
                         place = enrolls[j].place;
-                        name = enrolls[j].sport.name;
+                        if (enrolls[j].type == Enrolment.ENROLMENT_TYPE.SPORT) {
+                            name = enrolls[j].sport.name;
+                        } else {
+                            name = enrolls[j].event.naam;
+                        }
                         final String n = name;
                         session = true;
 
@@ -157,6 +170,8 @@ public class CalendarController implements Initializable, ControlledScreen {
             final String p = place;
             final String n = name;
 
+            final Enrolment.ENROLMENT_TYPE en = r;
+
             if (session) {
                 pane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
                     @Override
@@ -168,7 +183,11 @@ public class CalendarController implements Initializable, ControlledScreen {
                         btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
                             @Override
                             public void handle(javafx.scene.input.MouseEvent mouseEvent) {
-                                _controller.ShowSportDetail(n);
+                                if (en == Enrolment.ENROLMENT_TYPE.SPORT) {
+                                    _controller.ShowSportDetail(n);
+                                } else {
+                                    _controller.ShowEventDetail(n);
+                                }
                             }
                         });
                     }
