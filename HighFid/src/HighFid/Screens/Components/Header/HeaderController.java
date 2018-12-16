@@ -5,6 +5,7 @@ import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -14,9 +15,15 @@ public class HeaderController implements Initializable, ControlledScreen {
 
     @FXML
     private ImageView imLogo;
+    @FXML
+    private TextField searchField;
 
     @FXML
     public void initialize(){
+        searchField.setOnMouseEntered(e -> {
+            searchField.setText("Zoeken niet mogelijk in prototype");
+        });
+
 
     }
     @Override
