@@ -40,13 +40,11 @@ public class MainMenuController implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(anchorPane.getMinWidth());
         addPane.setVisible(false);
 
         atletiekPane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent mouseEvent) {
-                System.out.println("Atletiek pushed");
                 _controller.ShowSportDetail("Atletiek");
             }
         });

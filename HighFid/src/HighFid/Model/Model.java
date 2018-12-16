@@ -107,6 +107,7 @@ public class Model {
         }
         return ok;
     }
+
     public Sport sportByName(String name) {
         for(int i = 0; i < sports.length; i++) {
             if(sports[i].name.compareTo(name) == 0)
