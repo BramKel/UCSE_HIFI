@@ -105,7 +105,7 @@ public class Model {
             return false;
         }
     }
-
+    public Sport[] getSports() {return sports;}
     /**
      * Public static function checkJSON
      * Method that checks if Object has all the fields
