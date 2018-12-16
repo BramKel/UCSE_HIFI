@@ -2,12 +2,14 @@ package HighFid.Screens.MainMenu;
 
 //Personal imports
 import HighFid.Model.Model;
+import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -31,6 +33,8 @@ public class MainMenuController implements Initializable, ControlledScreen {
     @FXML Pane addPane;
     @FXML Pane atletiekPane;
     @FXML Pane basketPane;
+    @FXML
+    TextField searchField;
     /**
      * Public function initialize
      * Initialize the screen
@@ -54,8 +58,45 @@ public class MainMenuController implements Initializable, ControlledScreen {
                 _controller.ShowSportDetail("Basketbal");
             }
         });
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            ApplySearchTerm(newValue);
+        });
     }
-
+    private void ApplySearchTerm(String search) {
+        Sport[] sports = _model.getSports();
+        if(search.length() < 3) {
+            for(int i = 0; i < sports.length; i++)
+                showSport(sports[i].name);
+            return;
+        }
+        for(int i = 0; i < sports.length; i++) {
+            if(!sports[i].ContainsSearchTerm(search))
+                hideSport(sports[i].name);
+            else
+                showSport(sports[i].name);
+        }
+        System.out.println(search);
+    }
+    private void hideSport(String name ) {
+        if(name.compareTo("Atletiek") == 0)
+        {
+            atletiekPane.setVisible(false);
+            basketPane.setLayoutY(10);
+        }
+        if(name.compareTo("Basketbal") == 0) {
+            basketPane.setVisible(false);
+        }
+    }
+    private void showSport(String name) {
+        if(name.compareTo("Atletiek") == 0)
+        {
+            atletiekPane.setVisible(true);
+            basketPane.setLayoutY(150);
+        }
+        if(name.compareTo("Basketbal") == 0) {
+            basketPane.setVisible(true);
+        }
+    }
     /**
      * Public function setScreenParent
      * Sets the Controlling parent for navigation
