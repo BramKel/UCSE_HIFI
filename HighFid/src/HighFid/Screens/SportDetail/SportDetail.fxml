@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -167,7 +167,14 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Pane fx:id="pnPopup" layoutX="1.0" opacity="0.75" prefHeight="734.0" prefWidth="411.0" style="-fx-background-color: lightgrey;" />
+      <Pane fx:id="pnPopup" layoutX="1.0" opacity="0.75" prefHeight="734.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
+         <children>
+            <ImageView fx:id="imgQR" fitHeight="88.0" fitWidth="53.0" layoutX="344.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/QR/icon.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <Pane fx:id="pnPopupText" layoutX="15.0" layoutY="235.0" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 2;">
          <children>
              <Label fx:id="lblPopupText" layoutX="32.0" layoutY="14.0" text="Uitschrijven voor Atletiek">

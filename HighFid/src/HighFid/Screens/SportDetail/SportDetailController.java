@@ -31,7 +31,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     Label title;
     @FXML
-    ImageView backBtn;
+    ImageView backBtn, imgQR;
     @FXML
     Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
     @FXML
@@ -148,6 +148,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
             if(_model.getProfile().enrolments[i].sport.name.equals(s.name)) {
                 btnEnrol.setVisible(false);
                 btnUnenrol.setVisible(true);
+
                 found = true;
             } else {
                 btnEnrol.setVisible(true);
@@ -159,6 +160,9 @@ public class SportDetailController implements Initializable, ControlledScreen {
 
         if (_model.getProfile().getId() == Profile.ID_types.SPORTLK && s.name.equals("Basketbal")) {
             btnView.setVisible(true);
+            String path = "QR/icon.png";
+            imgQR.setImage(new Image(path));
+            imgQR.setVisible(true);
         }
     }
 
