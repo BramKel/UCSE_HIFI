@@ -1,4 +1,4 @@
-package HighFid.Screens.SportDetail;
+package HighFid.Screens.ChallengeDetail;
 
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
@@ -26,7 +26,7 @@ import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
 
-public class SportDetailController implements Initializable, ControlledScreen {
+public class ChallengeDetailController implements Initializable, ControlledScreen {
     //Private members
     private ScreensController _controller;
     private Model _model;
@@ -38,7 +38,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     ImageView backBtn;
     @FXML
-    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
+    Label descriptionContent;
     @FXML
     AnchorPane anchorPane;
     @FXML
@@ -59,7 +59,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
                 _controller.goToPreviousScreen();
             }
         });
-        //dataTable.lookup("TableHeaderRow").setVisible(false);
 
 
     }
@@ -70,73 +69,29 @@ public class SportDetailController implements Initializable, ControlledScreen {
         double width = imageView.getFitWidth();
         double xCoor = (393 - width) / 2;
         imageView.setLayoutX(xCoor);
-
-
     }
-    private String makePriceTxt(int prijsZK, int prijsMK) {
-        String p1 = "" + prijsZK;
-        String p2 = "" + prijsMK;
-        if(prijsZK == 0)
-            p1 = "gratis";
-        if(prijsMK == 0)
-            p2 = "gratis";
-        String str = "Prijs met kaart: " + p2 + "\nPrijs zonder kaart: " + p1;
-        return str;
-    }
-    private void makeDateTxt(DayOfWeek[] days, Time[] begins, Time[] ends, String []places) {
 
-        int amount = days.length;
-        String dayTxt = "";
-        String timeTxt = "";
-        String placeTxt = "";
+    public void ShowDetail(int id) {
+        String[] achievementNames = _model.getAchNames();
+        String[] achievementDesc = _model.getAchDesc();
+        boolean[] achievementGot = _model.getAchGot();
 
-        for(int i = 0; i < amount; i++) {
 
-            dayTxt += DayToStr(days[i]) + "\n";
-            timeTxt += begins[i].toString().substring(0,5) + " - " + ends[i].toString().substring(0,5) + "\n";
-            placeTxt += places[i] + "\n";
+        title.setText(achievementNames[id]);
+        descriptionContent.setText(achievementDesc[id]);
+
+        String path;
+
+        if (achievementGot[id]) {
+            path = "challenges/gold_trophy.png";
+        } else {
+            path = "challenges/grey_trophy.png";
         }
-        dayContent.setText(dayTxt);
-        timeContent.setText(timeTxt);
-        placeContent.setText(placeTxt);
 
-    }
-    private String DayToStr(DayOfWeek day) {
-        String result = "";
-        switch(day) {
-            case MONDAY:
-                result = "Maandag";
-                break;
-            case TUESDAY:
-                result ="Dinsdag";
-                break;
-            case WEDNESDAY:
-                result = "Woensdag";
-                break;
-            case THURSDAY:
-                result = "Donderdag";
-                break;
-            case FRIDAY:
-                result = "Vrijdag";
-                break;
-            case SATURDAY:
-                result = "Zaterdag";
-                break;
-            case SUNDAY:
-                result = "Zondag";
-                break;
-        }
-        return result;
-    }
-    public void ShowSport(Sport s) {
-        title.setText(s.name);
-        ShowImage(s.name);
-        descriptionContent.setText(s.description);
-        aanbodContent.setText(s.description);
-        niveauContent.setText(s.niveau);
-        wanneerContent.setText(s.wanneer);
-        prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
-        makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
+        imageView.setImage(new Image(path));
+        double width = imageView.getFitWidth();
+        double xCoor = (393 - width) / 2;
+        imageView.setLayoutX(xCoor);
     }
 
 

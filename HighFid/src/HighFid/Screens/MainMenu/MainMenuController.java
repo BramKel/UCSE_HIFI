@@ -78,5 +78,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
     }
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
+    @FXML
+    private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
 
 }

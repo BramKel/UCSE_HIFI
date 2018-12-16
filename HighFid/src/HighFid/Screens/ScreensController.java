@@ -3,6 +3,7 @@ package HighFid.Screens;
 //Personal Imports
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
+import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.SportDetail.SportDetailController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -48,6 +49,7 @@ public class ScreensController extends StackPane {
         //ADD NEW SCREENS HERE
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
+        loadScreen("ChallengeOverview", "ChallengeOverview/ChallengeOverview.fxml");
         loadScreen("Profile", "Profile/Profile.fxml");
         loadScreen("SportKaart", "SportKaart/SportKaart.fxml");
         loadScreen("Enrolment", "Enrolment/Enrolment.fxml");
@@ -186,6 +188,10 @@ public class ScreensController extends StackPane {
         setScreen("MainMenu");
     }
 
+    public void showChallengeOverview(){
+        setScreen("ChallengeOverview");
+    }
+
     public void ShowSportDetail(String name) {
         if(screens.containsKey("SportDetail" + name))
             screens.remove("SportDetail" + name);
@@ -205,6 +211,25 @@ public class ScreensController extends StackPane {
             System.out.println(e.toString());
         }
     }
+
+    public void showAchievementDetail(int id) {
+        if(screens.containsKey("ChallengeDetail" + id))
+            screens.remove("ChallengeDetail" + id);
+
+        try{
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("ChallengeDetail/ChallengeDetail.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((ChallengeDetailController) myScreenController).ShowDetail(id);
+            screens.put("ChallengeDetail" + id, loadScreen);
+
+            setScreen("ChallengeDetail"+id);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
     public void showProfile() {
         setScreen("Profile");
     }
@@ -216,4 +241,5 @@ public class ScreensController extends StackPane {
     public void showEnrollment() {
         setScreen("Enrolment");
     }
+
 }

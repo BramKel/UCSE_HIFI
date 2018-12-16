@@ -21,6 +21,17 @@ public class Model {
     private Profile profile;
     private Sport[] sports = new Sport[0];
 
+    //Using simple arrays now, but could easily be read in from an actual database after the prototype stage
+    private String[] achievementNames = {"Eerste stapjes", "Groentje", "Expert", "Balsporter", "Atleet", "Zwemmer",
+            "Danser", "Skivakantie", "Multidisciplinair"};
+    private String[] achievementDesc = {"Neem deel aan 1 sessie van eender welke sport. (1/1)",
+            "Neem deel aan 5 sessies van eender welke sport. (5/5)",
+            "Neem deel aan 10 sessies van eender welke sport. (7/10)",
+            "Neem deel aan 5 sessies van balsporten. (5/5)", "Neem deel aan 5 sessies van atletiek. (0/5)",
+            "Neem deel aan 5 sessies van zwemmen. (1/5)", "Neem deel aan 5 sessies van dansen. (0/5)",
+            "Ga mee op skivakantie. (1/1)", "Neem deel aan 3 sessies van verschillende sporten. (3/3)"};
+    private boolean[] achievementGot = { true, true, false, true, false, false, false, true, true };
+
     /**
      * Constructor
      * Creates a new Model
@@ -44,6 +55,9 @@ public class Model {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+    public String[] getAchNames() { return this.achievementNames; }
+    public String[] getAchDesc() { return this.achievementDesc; }
+    public boolean[] getAchGot() { return this.achievementGot; }
 
     public void ReadSports() {
         try{
