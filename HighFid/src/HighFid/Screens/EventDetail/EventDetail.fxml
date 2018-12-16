@@ -95,7 +95,7 @@
                            </padding>
                         </Label>
                         <Label fx:id="descriptionContent" maxWidth="383.0" text="Op donderdag 16 mei 2019 organiseert Studentensport Limburg de 10de editie van de Campusrun (10 / 7,5 / 4,5 kilometer). Opnieuw gaat de opbrengst van de loopwedstrijd naar ‘Kom Op Tegen Kanker’. Het parcours slingert langs de gebouwen van de UHasselt, Hogeschool PXL en UCLL, over fietspaden en langs de Demer. De finishlijn is getrokken in het Kapermolenpark. Prijzen worden uitgereikt aan de snelste 3 mannelijke en de snelste 3 vrouwelijke deelnemers van elke afstand. Later meer info." wrapText="true" />
-                        <Label layoutX="10.0" layoutY="174.0" text="Prijs:">
+                        <Label layoutX="10.0" layoutY="174.0" text="Datum:">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -103,10 +103,24 @@
                               <Insets bottom="2.0" top="10.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="prijsContent" layoutX="10.0" layoutY="201.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Gratis" wrapText="true" />
+                        <Label fx:id="dateContent" layoutX="10.0" layoutY="201.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="01 / 01 / 2000" wrapText="true" />
+                        <Label layoutX="10.0" layoutY="167.0" text="Prijs:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="prijsContent" layoutX="10.0" layoutY="198.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Gratis" wrapText="true" />
                      </children>
                   </VBox>
-                  <Button layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven">
+                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Uitschrijven" visible="false" >
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showEventEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven" visible="true">
                      <font>
                         <Font size="18.0" />
                      </font>
