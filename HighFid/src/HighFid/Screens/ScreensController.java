@@ -3,6 +3,7 @@ package HighFid.Screens;
 //Personal Imports
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
+import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.SportDetail.SportDetailController;
 import javafx.animation.KeyFrame;
@@ -226,6 +227,25 @@ public class ScreensController extends StackPane {
             screens.put("ChallengeDetail" + id, loadScreen);
 
             setScreen("ChallengeDetail"+id);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void showCalendar(int month) {
+        if(screens.containsKey("Calendar" + month))
+            screens.remove("Calendar" + month);
+
+        try{
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Calendar/Calendar.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((CalendarController) myScreenController).buildCalendar(month);
+            screens.put("Calendar" + month, loadScreen);
+
+            setScreen("Calendar"+month);
         } catch (Exception e) {
             System.out.println(e.toString());
         }

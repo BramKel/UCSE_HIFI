@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -48,7 +48,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button disable="true" layoutX="160.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Cal">
+                <Button disable="true" layoutX="160.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" onAction="#showCalendar" prefHeight="75.0" prefWidth="82.0" text="Cal">
                     <graphic>
                         <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -57,7 +57,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button disable="true" layoutX="242.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Challenges">
+                <Button disable="true" layoutX="242.0" layoutY="609.0" minWidth="85.0" mnemonicParsing="false" onAction="#showChallengeOverview" prefHeight="75.0" prefWidth="82.0" text="Challenges">
                     <graphic>
                         <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
