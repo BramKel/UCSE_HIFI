@@ -53,6 +53,30 @@
       "name": "Basketbal",
       "aanbod": "Vast avondprogramma",
       "niveau": "Beginners tot gevorderden"
-    }
+    },
+	{
+	"daysList": [
+        {
+          "beginTime": "18:00:00",
+          "endTime": "19:30:00",
+          "day": "MONDAY",
+          "place": "Fitlink, Diepenbeek"
+        },
+		{
+          "beginTime": "18:30:00",
+          "endTime": "20:00:00",
+          "day": "TUESDAY",
+          "place": "Grote hal PXL, Hasselt"
+        }
+      ],
+      "descr": "Iedereen kan badminton spelen. Het enige wat je nodig hebt is een racket en een pluimpje. Een eenvoudige sport die je tegelijkertijd de mogelijkheid biedt om te groeien. Als beginner sla je het pluimpje langzaam naar je tegenspeler. Maar eenmaal gevorderd, zul je hem met bliksemsnelle reacties kunnen verrassen. ",
+      "prijsZonderKaart": "2",
+      "quote": "LEEF JE UIT MET RACKET EN PLUIMPJE!",
+      "prijsMetKaart": "0",
+      "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nVoor de lessen die doorgaan in Fitlink: geen les op feest- en brugdagenm, 19 november 2018 (jobbeurs) en tijdens de kerstvakantie en 2de week paasvakantie (15/4).\n\nVoor de lessen die doorgaan in PXL: geen les op feest en brugdagen van 08/01/19 t.e.m. 08/02/19 tijdens de herfst-, kerst- en paasvakantie",
+      "name": "Badminton",
+      "aanbod": "Vast avondprogramma",
+      "niveau": "Beginners tot gevorderden"
+	}
   ]
 }

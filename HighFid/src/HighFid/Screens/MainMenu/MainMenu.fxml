@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.MainMenu.MainMenuController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.MainMenu.MainMenuController">
    <children>
 
       <AnchorPane layoutY="50.0" prefHeight="681.0" prefWidth="411.0">
@@ -58,7 +58,26 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane fx:id="addPane" layoutX="10.0" layoutY="290.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
+                        <Pane fx:id="badmintonPane" layoutX="10.0" layoutY="290.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="TOP" layoutX="135.0" layoutY="30.0" minWidth="254.0" text="Badminton" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/Sports/Badminton.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="135.0" layoutY="75.0" minWidth="254.0" text="Leef je uit met racket en pluimpje!" textFill="#1492ba">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="addPane" layoutX="10.0" layoutY="430.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
                            <children>
                               <Label alignment="CENTER" contentDisplay="TOP" layoutX="135.0" layoutY="20.0" minWidth="254.0" text="Sport" wrapText="true">
                                  <font>

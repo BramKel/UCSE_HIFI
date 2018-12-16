@@ -34,7 +34,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
     @FXML AnchorPane anchorPane;
     @FXML Pane addPane;
-    @FXML Pane atletiekPane;
+    @FXML Pane atletiekPane, badmintonPane;
     @FXML Pane basketPane;
     @FXML
     TextField searchField;
@@ -67,6 +67,12 @@ public class MainMenuController implements Initializable, ControlledScreen {
                 _controller.ShowSportDetail("Basketbal");
             }
         });
+        badmintonPane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                _controller.ShowSportDetail("Badminton");
+            }
+        });
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             ApplySearchTerm(newValue);
         });
@@ -92,13 +98,12 @@ public class MainMenuController implements Initializable, ControlledScreen {
         filterPane.setVisible(false);
     }
     private boolean isOutFiltered(Sport s) {
-        boolean result = false;
-        if(!djopCheck.isSelected()){
-            result = result || s.CheckPlace("Diepenbeek");
+        if(djopCheck.isSelected() && s.CheckPlace("Diepenbeek")){
+            return false;
         }
-        if(!hasseltCheck.isSelected())
-            result = result || s.CheckPlace("Hasselt");
-        return result;
+        if(hasseltCheck.isSelected() && s.CheckPlace("Hasselt"))
+            return false;
+        return true;
     }
 
     private void ApplySearchTerm(String search) {
@@ -124,21 +129,44 @@ public class MainMenuController implements Initializable, ControlledScreen {
         if(name.compareTo("Atletiek") == 0)
         {
             atletiekPane.setVisible(false);
-            basketPane.setLayoutY(10);
         }
         if(name.compareTo("Basketbal") == 0) {
             basketPane.setVisible(false);
         }
+        if(name.compareTo("Badminton") == 0)
+            badmintonPane.setVisible(false);
+
+        PlaceBlocks();
+    }
+    private void PlaceBlocks() {
+        double yCoor = 10;
+        if(atletiekPane.isVisible())
+        {
+            atletiekPane.setLayoutY(yCoor);
+            yCoor += 140;
+        }
+        if(basketPane.isVisible()) {
+            basketPane.setLayoutY(yCoor);
+            yCoor +=140;
+        }
+        if(badmintonPane.isVisible()) {
+            badmintonPane.setLayoutY(yCoor);
+            yCoor +=140;
+        }
+
     }
     private void showSport(String name) {
         if(name.compareTo("Atletiek") == 0)
         {
             atletiekPane.setVisible(true);
-            basketPane.setLayoutY(150);
         }
         if(name.compareTo("Basketbal") == 0) {
             basketPane.setVisible(true);
         }
+        if(name.compareTo("Badminton") == 0)
+            badmintonPane.setVisible(true);
+
+        PlaceBlocks();
     }
     /**
      * Public function setScreenParent
