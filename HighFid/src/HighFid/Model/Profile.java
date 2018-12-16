@@ -88,6 +88,10 @@ public class Profile {
         this.enrolments = newEnrolments;
     }
 
+    public Enrolment[] getEnrollments() {
+        return this.enrolments;
+    }
+
     /**
      * Public function logout
      * Resets the user profile

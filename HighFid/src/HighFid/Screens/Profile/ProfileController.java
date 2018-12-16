@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
@@ -34,6 +35,8 @@ public class ProfileController implements Initializable, ControlledScreen {
     private ImageView imOTHER;
     @FXML
     private Region regNONE;
+    @FXML
+    private Button btnSK, btnChal;
 
     /**
      * Public function initialize
@@ -88,6 +91,8 @@ public class ProfileController implements Initializable, ControlledScreen {
                 imSTUD_NO_SP.setVisible(false);
                 imOTHER.setVisible(true);
                 regNONE.setVisible(false);
+                btnSK.setVisible(false);
+                btnChal.setVisible(false);
                 break;
             case NONE:
                 imSTUD_SP.setVisible(false);
