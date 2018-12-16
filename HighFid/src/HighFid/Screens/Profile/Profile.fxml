@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
     <children>
         <fx:include source="../Components/Header/Header.fxml" />
         <AnchorPane layoutY="49.0" prefHeight="681.0" prefWidth="411.0">
@@ -36,7 +36,7 @@
             <Label fx:id="lblAge" layoutX="178.0" layoutY="77.0" text="[Profile age]" />
             <Label fx:id="lblOrg" layoutX="178.0" layoutY="101.0" text="[Profile organisation]" />
             <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="35.0" prefWidth="268.0" text="Pas gegevens aan" />
-            <Button layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" />
+            <Button fx:id="btnSK" layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" />
             <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
             <Button layoutX="69.0" layoutY="462.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" />
 
