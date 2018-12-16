@@ -180,6 +180,10 @@ public class CalendarController implements Initializable, ControlledScreen {
                         lblLocation.setText(p);
                         lblTitle.setText(n);
 
+                        if (p == null) {
+                            lblLocation.setText("Word meegedeeld");
+                        }
+
                         btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
                             @Override
                             public void handle(javafx.scene.input.MouseEvent mouseEvent) {

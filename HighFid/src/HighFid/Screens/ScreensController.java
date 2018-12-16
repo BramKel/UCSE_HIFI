@@ -60,6 +60,7 @@ public class ScreensController extends StackPane {
         loadScreen("Enrolment", "Enrolment/Enrolment.fxml");
         loadScreen("EventsPage", "EventsPage/EventsPage.fxml");
         loadScreen("Inschrijvingen", "Inschrijvingen/Inschrijvingen.fxml");
+        loadScreen("ScanQR", "ScanQR/ScanQR.fxml");
     }
 
     //Setter
@@ -334,4 +335,6 @@ public class ScreensController extends StackPane {
     }
 
     public void showInschrijvingen() { setScreen("Inschrijvingen"); }
+
+    public void showScanQR() { setScreen("ScanQR"); }
 }

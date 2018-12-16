@@ -1,7 +1,8 @@
-package HighFid.Screens.Inschrijvingen;
+package HighFid.Screens.ScanQR;
 
+import HighFid.Model.Enrolment;
+import HighFid.Model.Event;
 import HighFid.Model.Model;
-import HighFid.Model.Profile;
 import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
@@ -9,29 +10,30 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextFlow;
+
+import javax.swing.*;
+import java.io.File;
 import java.net.URL;
 import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
 
-public class InschrijvingenController implements Initializable, ControlledScreen {
+public class ScanQRController implements Initializable, ControlledScreen {
     //Private members
     private ScreensController _controller;
     private Model _model;
+    private Event event;
 
     @FXML
-    ImageView backBtn;
-
-    @FXML
-    CheckBox cb1, cb2, cb3, cb4, cb5, cb6;
+    ImageView backBtn, imgQR;
 
     /**
      * Public function initialize
@@ -49,7 +51,9 @@ public class InschrijvingenController implements Initializable, ControlledScreen
             }
         });
 
-        //dataTable.lookup("TableHeaderRow").setVisible(false);
+        String path = "QR/scan.jpg";
+        imgQR.setImage(new Image(path));
+        imgQR.setVisible(true);
 
 
     }
@@ -65,51 +69,12 @@ public class InschrijvingenController implements Initializable, ControlledScreen
     }
     //Setter
     public void setModel(Model model) {
+        _model = model;
     }
-
-    @FXML void checkAll(ActionEvent event) {
-        cb1.setSelected(true);
-        cb2.setSelected(true);
-        cb3.setSelected(true);
-        cb4.setSelected(true);
-        cb5.setSelected(true);
-        cb6.setSelected(true);
+    @FXML
+    private void showProfile(ActionEvent event) {
+        _controller.showProfile();
     }
-
-    @FXML void checkNone(ActionEvent event) {
-        cb1.setSelected(false);
-        cb2.setSelected(false);
-        cb3.setSelected(false);
-        cb4.setSelected(false);
-        cb5.setSelected(false);
-        cb6.setSelected(false);
-    }
-
-    @FXML void checkPaid(ActionEvent event) {
-        cb1.setSelected(true);
-        cb2.setSelected(true);
-        cb3.setSelected(false);
-        cb4.setSelected(true);
-        cb5.setSelected(true);
-        cb6.setSelected(false);
-    }
-
-    @FXML void checkNotPaid(ActionEvent event) {
-        cb1.setSelected(false);
-        cb2.setSelected(false);
-        cb3.setSelected(true);
-        cb4.setSelected(false);
-        cb5.setSelected(false);
-        cb6.setSelected(true);
-    }
-
-    @FXML void sendPush(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Verzonden");
-        alert.setHeaderText("Pushbericht succesvol verzonden!");
-        alert.showAndWait();
-    }
-
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
     @FXML
@@ -117,6 +82,10 @@ public class InschrijvingenController implements Initializable, ControlledScreen
     @FXML
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
     @FXML
-    private void showScanQR(ActionEvent event) { _controller.showScanQR(); }
-
+    private void scan(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ingescand");
+        alert.setHeaderText("QR code ingescand! Michiel Marien is bevestigd als aanwezig.");
+        alert.showAndWait();
+    }
 }

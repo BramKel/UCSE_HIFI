@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 import java.net.URL;
 import java.sql.Time;
 import java.time.DayOfWeek;
@@ -216,4 +217,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
     @FXML
     private void showInschrijvingen(ActionEvent event) { _controller.showInschrijvingen(); }
+    @FXML
+    private void showScanQR(ActionEvent event) { _controller.showScanQR(); }
 }
