@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.EventsPage.EventsPageController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.EventsPage.EventsPageController">
    <children>
 
       <AnchorPane layoutY="50.0" prefHeight="681.0" prefWidth="411.0">
@@ -61,7 +61,7 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
+            <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
                <graphic>
                   <ImageView fitHeight="67.0" fitWidth="66.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
                      <image>
