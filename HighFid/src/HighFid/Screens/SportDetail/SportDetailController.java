@@ -163,6 +163,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
     @FXML
-    private void showCalendar(ActionEvent event){_controller.showCalendar(2); }
+    private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
 
 }

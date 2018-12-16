@@ -135,5 +135,5 @@ public class ProfileController implements Initializable, ControlledScreen {
         _model.getProfile().logout();
     }
     @FXML
-    private void showCalendar(ActionEvent event){_controller.showCalendar(2); }
+    private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
 }

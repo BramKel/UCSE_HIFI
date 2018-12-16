@@ -7,8 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -73,13 +75,14 @@ public class ChallengeOverviewController implements Initializable, ControlledScr
 
             ImageView iv = new ImageView(ig);
             Tooltip.install(iv, new Tooltip(achievementDesc[i]));
-            Text inftx = new Text(achievementNames[i]);
-            StackPane pane = new StackPane();
+            Label lbl = new Label(achievementNames[i]);
+            GridPane pane = new GridPane();
 
-            pane.getChildren().add(iv);
-            pane.getChildren().add(inftx);
+            pane.add(iv, 0, 0, 1, 1);
+            pane.add(lbl, 0, 1, 1, 1);
 
-            pane.setAlignment(Pos.BOTTOM_CENTER);
+            pane.setHalignment(lbl, HPos.CENTER);
+
 
             final int id = i;
 
@@ -111,5 +114,5 @@ public class ChallengeOverviewController implements Initializable, ControlledScr
     @FXML
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview();}
     @FXML
-    private void showCalendar(ActionEvent event){_controller.showCalendar(2); }
+    private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
 }

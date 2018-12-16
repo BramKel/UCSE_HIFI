@@ -71,21 +71,31 @@ public class CalendarController implements Initializable, ControlledScreen {
             }
         });
 
+        if (month == 0) {
+            backArrow.setDisable(true);
+            backArrow.setVisible(false);
+        }
+
+        if (month == 2) {
+            forwardArrow.setDisable(true);
+            forwardArrow.setVisible(false);
+        }
+
         //Determines which day of the week the month starts.
         int offset = 0;
         int days = 31;
 
         if (month == 0) {
-            monthLabel.setText("November 2018");
-            offset = 3;
-            days = 30;
-        }
-        else if (month == 1) {
             monthLabel.setText("December 2018");
             offset = 5;
-        } else {
+        }
+        else if (month == 1) {
             monthLabel.setText("Januari 2019");
             offset = 1;
+        } else {
+            monthLabel.setText("Februari 2019");
+            offset = 4;
+            days = 28;
         }
 
         for (int i = 0; i < days; i++) {
@@ -137,6 +147,6 @@ public class CalendarController implements Initializable, ControlledScreen {
     @FXML
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
     @FXML
-    private void showCalendar(ActionEvent event){_controller.showCalendar(2); }
+    private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
 
 }
