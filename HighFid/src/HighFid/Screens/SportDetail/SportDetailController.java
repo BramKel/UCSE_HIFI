@@ -8,19 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextFlow;
-
-import javax.swing.*;
-import java.io.File;
 import java.net.URL;
 import java.sql.Time;
 import java.time.DayOfWeek;
@@ -43,6 +36,8 @@ public class SportDetailController implements Initializable, ControlledScreen {
     AnchorPane anchorPane;
     @FXML
     VBox vbox;
+    @FXML
+    private Button btnEnrol, btnUnenrol;
 
     /**
      * Public function initialize
@@ -59,6 +54,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
                 _controller.goToPreviousScreen();
             }
         });
+
         //dataTable.lookup("TableHeaderRow").setVisible(false);
 
 
@@ -129,6 +125,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
         return result;
     }
     public void ShowSport(Sport s) {
+        this.s = s;
         title.setText(s.name);
         ShowImage(s.name);
         descriptionContent.setText(s.description);
@@ -137,6 +134,15 @@ public class SportDetailController implements Initializable, ControlledScreen {
         wanneerContent.setText(s.wanneer);
         prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
+        for(int i = 0; i < _model.getProfile().enrolments.length; ++i) {
+            if(_model.getProfile().enrolments[i].sport.name.equals(s.name)) {
+                btnEnrol.setVisible(false);
+                btnUnenrol.setVisible(true);
+            } else {
+                btnEnrol.setVisible(true);
+                btnUnenrol.setVisible(false);
+            }
+        }
 
         this.s = s;
     }
@@ -156,9 +162,10 @@ public class SportDetailController implements Initializable, ControlledScreen {
     public void setModel(Model model) {
         _model = model;
     }
+
     @FXML
-    private void showProfile(ActionEvent event) {
-        _controller.showProfile();
+    public void showSportEnrollment(){
+        _controller.showSportEnrollment(s.name);
     }
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}

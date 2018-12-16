@@ -1,5 +1,6 @@
 package HighFid.Screens.Calendar;
 
+import HighFid.Model.Enrolment;
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
@@ -9,10 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,7 +36,9 @@ public class CalendarController implements Initializable, ControlledScreen {
     GridPane ourGrid;
 
     @FXML ImageView backArrow, forwardArrow;
-    @FXML Label monthLabel;
+    @FXML Label monthLabel, lblLocation, lblTitle;
+    @FXML Button btnDetails;
+    @FXML Pane detailsPane;
 
     /**
      * Public function initialize
@@ -98,8 +98,50 @@ public class CalendarController implements Initializable, ControlledScreen {
             days = 28;
         }
 
+        Enrolment[] enrolls = _model.getProfile().getEnrollments();
+
+
         for (int i = 0; i < days; i++) {
-            boolean session = i % 3 == 0;
+            boolean session = false;
+
+            String place = "";
+            String name = "";
+
+            for (int j = 0; j < enrolls.length; j++) {
+                int maand = enrolls[j].day.getMonth() + 1;
+                int dag = enrolls[j].day.getDate();
+
+                if (month == 0 && maand == 12) {
+                    if (dag - 1 == i) {
+                        name = enrolls[j].sport.name;
+                        place = enrolls[j].place;
+                        final String n = name;
+                        session = true;
+
+                        btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                            @Override
+                            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                                _controller.ShowSportDetail(n);
+                            }
+                        });
+                    }
+                } else if (month == maand) {
+                    if (dag - 1 == i) {
+                        place = enrolls[j].place;
+                        name = enrolls[j].sport.name;
+                        final String n = name;
+                        session = true;
+
+                        btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                            @Override
+                            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                                _controller.ShowSportDetail(n);
+                            }
+                        });
+                    }
+                }
+            }
+
             Image ig;
 
             if(session) {
@@ -116,6 +158,29 @@ public class CalendarController implements Initializable, ControlledScreen {
             pane.getChildren().add(inftx);
 
             pane.setAlignment(Pos.CENTER);
+
+            final String p = place;
+            final String n = name;
+
+            if (session) {
+                pane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                    @Override
+                    public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                        detailsPane.setVisible(true);
+                        lblLocation.setText(p);
+                        lblTitle.setText(n);
+                    }
+                });
+            } else {
+                pane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                    @Override
+                    public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                        detailsPane.setVisible(false);
+                        lblLocation.setText(p);
+                        lblTitle.setText(n);
+                    }
+                });
+            }
 
             int row = (i + offset) / 7;
             int col = (i + offset) % 7;

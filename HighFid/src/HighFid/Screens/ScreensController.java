@@ -8,6 +8,7 @@ import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.EventDetail.EventDetailController;
 import HighFid.Screens.SportDetail.SportDetailController;
+import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -165,7 +166,12 @@ public class ScreensController extends StackPane {
             newScreens[i] = screenHistory[i];
         }
         screenHistory = newScreens;
-        setScreen(screenHistory[amount-1]);
+        if(screenHistory[amount-1].contains("SportDetail")) {
+            //recheck for enrolment
+            ShowSportDetail(screenHistory[amount-1].substring(11));
+        } else {
+            setScreen(screenHistory[amount-1]);
+        }
     }
     /**
      * Public function unloadScreen
@@ -255,6 +261,25 @@ public class ScreensController extends StackPane {
             System.out.println(e.toString());
         }
     }
+    public void showSportEnrollment(String name) {
+        if(screens.containsKey("SportEnrollment" + name))
+            screens.remove("SportEnrollment" + name);
+        try {
+            Sport s = _model.sportByName(name);
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SportEnrolment/SportEnrolment.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((SportEnrolmentController) myScreenController).ShowSport(s);
+            screens.put("SportEnrollment" + name, loadScreen);
+
+            setScreen("SportEnrollment"+name);
+        } catch (Exception e) {
+            System.out.println("ScreensController: showSportEnrollment, Error message: " + e.getMessage());
+        }
+    }
+
 
     public void showCalendar(int month) {
         if(screens.containsKey("Calendar" + month))
@@ -285,5 +310,4 @@ public class ScreensController extends StackPane {
     public void showEnrollment() {
         setScreen("Enrolment");
     }
-
 }

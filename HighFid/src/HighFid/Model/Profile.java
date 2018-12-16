@@ -22,6 +22,7 @@ public class Profile {
     private String age;
     private String org;
     private SportKaart sportKaart;
+    public Enrolment[] enrolments;
 
     /**
      * Constructor
@@ -42,6 +43,7 @@ public class Profile {
         this.setlName("");
         this.setOrg("");
         this.setSportKaart(new SportKaart());
+        this.enrolments = new Enrolment[0];
     }
 
     //Public functions
@@ -75,6 +77,19 @@ public class Profile {
             this.setId(ID_types.NONE);
             return false;
         }
+    }
+
+    public void addEnrolment(Enrolment enrolment) {
+        Enrolment[] newEnrolments = new Enrolment[this.enrolments.length + 1];
+        for(int i = 0; i < this.enrolments.length; ++i) {
+            newEnrolments[i] = this.enrolments[i];
+        }
+        newEnrolments[this.enrolments.length] = enrolment;
+        this.enrolments = newEnrolments;
+    }
+
+    public Enrolment[] getEnrollments() {
+        return this.enrolments;
     }
 
     /**
