@@ -44,7 +44,7 @@ public class Model {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-    public Sport[] getSports() {return sports;}
+
     public void ReadSports() {
         try{
             JSONObject sports = JsonIO.readJSONFile("sports.json");
@@ -91,7 +91,7 @@ public class Model {
             return false;
         }
     }
-
+    public Sport[] getSports() {return sports;}
     /**
      * Public static function checkJSON
      * Method that checks if Object has all the fields

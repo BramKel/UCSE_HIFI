@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -80,7 +81,7 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
+            <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
                <graphic>
                   <ImageView fitHeight="67.0" fitWidth="66.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -133,8 +134,22 @@
                   <Image url="@/logo-ssl.png" />
                </image>
             </ImageView>
-            <TextField layoutX="55.0" layoutY="10.0" minHeight="30.0" minWidth="250.0" promptText="Zoeken" fx:id="searchField"/>
-            <Button layoutX="320.0" layoutY="10.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Filters" />
+            <TextField fx:id="searchField" layoutX="55.0" layoutY="10.0" minHeight="30.0" minWidth="250.0" promptText="Zoeken" />
+            <Button fx:id="filterBtn" layoutX="320.0" layoutY="10.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Filters" />
+         </children>
+      </Pane>
+      <Pane fx:id="filterPane" layoutY="50.0" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 0 0 30 30; -fx-border-radius: 0 0 30 30;">
+         <children>
+            <CheckBox fx:id="djopCheck" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="329.0" selected="true" text="Diepenbeek">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="hasseltCheck" layoutX="20.0" layoutY="55.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="329.0" selected="true" text="Hasselt">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
          </children>
       </Pane>
    </children>

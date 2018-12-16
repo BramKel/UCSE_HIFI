@@ -155,6 +155,13 @@ public class Sport {
         }
         return false;
     }
+    public boolean CheckPlace(String place) {
+        for(int i = 0; i < places.length; i++) {
+            if(places[i].toLowerCase().contains(place.toLowerCase()))
+                return true;
+        }
+        return false;
+    }
 
     public void AddSession(DayOfWeek day, Time begin, Time end, String place) {
         DayOfWeek[] newDays = new DayOfWeek[days.length+1];

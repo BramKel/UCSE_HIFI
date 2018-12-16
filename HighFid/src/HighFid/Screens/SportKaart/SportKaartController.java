@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -29,6 +30,8 @@ public class SportKaartController implements Initializable, ControlledScreen {
     private Pane pnInactive;
     @FXML
     private Pane pnPopup, pnPopupText;
+    @FXML
+    private ImageView backBtn;
 
     /**
      * Public function initialize
@@ -41,6 +44,7 @@ public class SportKaartController implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
+        backBtn.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
     }
 
     /**
@@ -74,11 +78,6 @@ public class SportKaartController implements Initializable, ControlledScreen {
     }
 
     @FXML
-    public void HandleBackProfileButton(ActionEvent event) {
-        _controller.showProfile();
-    }
-
-    @FXML
     public void openPopup(ActionEvent event) {
         pnPopup.setVisible(true);
         pnPopupText.setVisible(true);
@@ -88,10 +87,5 @@ public class SportKaartController implements Initializable, ControlledScreen {
     public void closePopup(ActionEvent event) {
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
-    }
-
-    @FXML
-    public void showMainMenu(ActionEvent event) {
-        _controller.showMainMenu();
     }
 }
