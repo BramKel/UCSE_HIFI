@@ -1,5 +1,6 @@
 package HighFid.Screens.SportEnrolment;
 
+import HighFid.Model.Enrolment;
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
 import HighFid.Model.SportKaart;
@@ -184,7 +185,8 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
     public void handleEnrolment(ActionEvent event) {
         for(int i = 0; i < tblView.getItems().size(); ++i) {
             if(tblView.getItems().get(i).getColSelect().isSelected()) {
-                //TODO
+                Enrolment e = new Enrolment(s.days[i], s.beginTimes[i], s.endTimes[i], s.places[i], s);
+                _model.getProfile().addEnrolment(e);
             }
         }
         if(_model.getProfile().getSportKaart().getSkStatus() == SportKaart.SK_STATUS.ACTIVE) {
