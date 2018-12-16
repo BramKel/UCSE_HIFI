@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.sql.Time;
@@ -31,7 +32,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     Label title;
     @FXML
-    ImageView backBtn;
+    ImageView backBtn, imgQR;
     @FXML
     Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
     @FXML
@@ -40,6 +41,11 @@ public class SportDetailController implements Initializable, ControlledScreen {
     VBox vbox;
     @FXML
     private Button btnEnrol, btnUnenrol, btnView;
+
+    @FXML
+    private Pane pnPopup, pnPopupText;
+    @FXML
+    private Label lblPopupText;
 
     /**
      * Public function initialize
@@ -56,6 +62,8 @@ public class SportDetailController implements Initializable, ControlledScreen {
                 _controller.goToPreviousScreen();
             }
         });
+        pnPopup.setVisible(false);
+        pnPopupText.setVisible(false);
 
         //dataTable.lookup("TableHeaderRow").setVisible(false);
 
@@ -152,6 +160,9 @@ public class SportDetailController implements Initializable, ControlledScreen {
 
         if (_model.getProfile().getId() == Profile.ID_types.SPORTLK && s.name.equals("Basketbal")) {
             btnView.setVisible(true);
+            String path = "QR/icon.png";
+            imgQR.setImage(new Image(path));
+            imgQR.setVisible(true);
         }
     }
 
@@ -177,6 +188,26 @@ public class SportDetailController implements Initializable, ControlledScreen {
     public void showSportEnrollment(){
         _controller.showSportEnrollment(s.name);
     }
+
+    @FXML
+    public void openPopup(ActionEvent event) {
+        lblPopupText.setText("Uitschrijven voor " + s.name);
+        pnPopup.setVisible(true);
+        pnPopupText.setVisible(true);
+    }
+
+    @FXML
+    public void handleUnEnrolment(ActionEvent event){
+        _model.getProfile().removeEnrolment(s.name);
+        _controller.ShowSportDetail(s.name);
+    }
+
+    @FXML
+    public void closePopup(ActionEvent event) {
+        pnPopup.setVisible(false);
+        pnPopupText.setVisible(false);
+    }
+
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
     @FXML

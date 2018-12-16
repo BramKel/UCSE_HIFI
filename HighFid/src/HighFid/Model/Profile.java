@@ -92,6 +92,33 @@ public class Profile {
         return this.enrolments;
     }
 
+    public void removeEnrolment(String name) {
+        int count = 0;
+        for(int i = 0; i < this.enrolments.length; ++i) {
+            if(enrolments[i].type == Enrolment.ENROLMENT_TYPE.SPORT) {
+                if(enrolments[i].sport.name.equals(name)) {
+                    count++;
+                    enrolments[i] = null;
+                }
+            } else {
+                //Handle evenement
+            }
+        }
+        Enrolment[] newEnrolments = new Enrolment[this.enrolments.length - count];
+        int o = 0, n = 0;
+        while(o < this.enrolments.length) {
+            while(o < this.enrolments.length && this.enrolments[o] == null) {
+                o++;
+            }
+            if(o < this.enrolments.length) {
+                newEnrolments[n] = this.enrolments[o];
+            }
+            o++;
+            n++;
+        }
+        this.enrolments = newEnrolments;
+    }
+
     /**
      * Public function logout
      * Resets the user profile
