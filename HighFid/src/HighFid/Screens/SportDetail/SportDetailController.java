@@ -15,6 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.TextFlow;
 
 import javax.swing.*;
@@ -24,9 +26,6 @@ import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
 
-class DataStruct {
-    public String day, time, place;
-}
 public class SportDetailController implements Initializable, ControlledScreen {
     //Private members
     private ScreensController _controller;
@@ -39,9 +38,12 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     ImageView backBtn;
     @FXML
-    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent;
+    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
     @FXML
-    TableView dataTable;
+    AnchorPane anchorPane;
+    @FXML
+    VBox vbox;
+
     /**
      * Public function initialize
      * Initialize the screen
@@ -82,27 +84,21 @@ public class SportDetailController implements Initializable, ControlledScreen {
         return str;
     }
     private void makeDateTxt(DayOfWeek[] days, Time[] begins, Time[] ends, String []places) {
-        TableColumn dayCol = new TableColumn("Day");
-        dayCol.setCellValueFactory( new PropertyValueFactory<DataStruct, String>("day"));
-
-        TableColumn timeCol = new TableColumn("Times");
-        dayCol.setCellValueFactory( new PropertyValueFactory<DataStruct, String>("time"));
-
-        TableColumn placeCol = new TableColumn("Place");
-        dayCol.setCellValueFactory( new PropertyValueFactory<DataStruct, String>("place"));
-
-        dataTable.getColumns().addAll(dayCol, timeCol, placeCol);
 
         int amount = days.length;
+        String dayTxt = "";
+        String timeTxt = "";
+        String placeTxt = "";
 
         for(int i = 0; i < amount; i++) {
-            DataStruct data = new DataStruct();
-            data.day = DayToStr(days[i]);
-            data.time = begins[i].toString().substring(0,5) + " - " + ends[i].toString().substring(0,5);
-            data.place = places[i];
-            dataTable.getItems().add(data);
-        }
 
+            dayTxt += DayToStr(days[i]) + "\n";
+            timeTxt += begins[i].toString().substring(0,5) + " - " + ends[i].toString().substring(0,5) + "\n";
+            placeTxt += places[i] + "\n";
+        }
+        dayContent.setText(dayTxt);
+        timeContent.setText(timeTxt);
+        placeContent.setText(placeTxt);
 
     }
     private String DayToStr(DayOfWeek day) {
@@ -142,6 +138,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
         prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
     }
+
 
     /**
      * Public function setScreenParent
