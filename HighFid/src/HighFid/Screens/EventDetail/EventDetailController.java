@@ -1,5 +1,6 @@
 package HighFid.Screens.EventDetail;
 
+import HighFid.Model.Enrolment;
 import HighFid.Model.Event;
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
@@ -9,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -39,11 +41,13 @@ public class EventDetailController implements Initializable, ControlledScreen {
     @FXML
     ImageView backBtn;
     @FXML
-    Label  descriptionContent, prijsContent;
+    Label  descriptionContent, prijsContent, dateContent;
     @FXML
     AnchorPane anchorPane;
     @FXML
     VBox vbox;
+    @FXML
+    Button btnEnrol, btnUnenrol;
 
     /**
      * Public function initialize
@@ -93,6 +97,19 @@ public class EventDetailController implements Initializable, ControlledScreen {
         ShowImage(e.naam);
         descriptionContent.setText(e.beschrijving);
         prijsContent.setText(makePriceTxt(e.prijsZK, e.prijsMK));
+        dateContent.setText(e.getDateStr());
+
+        for(int i = 0; i < _model.getProfile().enrolments.length; ++i) {
+            Enrolment enrol = _model.getProfile().enrolments[i];
+            if(enrol.type == Enrolment.ENROLMENT_TYPE.EVENT && enrol.event.naam.equals(e.naam)) {
+                btnEnrol.setVisible(false);
+                btnUnenrol.setVisible(true);
+                break;
+            } else {
+                btnEnrol.setVisible(true);
+                btnUnenrol.setVisible(false);
+            }
+        }
 
         this.event = e;
     }
@@ -122,5 +139,6 @@ public class EventDetailController implements Initializable, ControlledScreen {
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
     @FXML
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
-
+    @FXML
+    private void showEventEnrollment(ActionEvent event) {_controller.showEventEnrollment(this.event.naam);}
 }

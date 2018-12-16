@@ -7,6 +7,7 @@ import HighFid.Model.Sport;
 import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.EventDetail.EventDetailController;
+import HighFid.Screens.EventEnrolment.EventEnrolmentController;
 import HighFid.Screens.SportDetail.SportDetailController;
 import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
@@ -169,7 +170,9 @@ public class ScreensController extends StackPane {
         screenHistory = newScreens;
         if(screenHistory[amount-1].contains("SportDetail")) {
             //recheck for enrolment
-            ShowSportDetail(screenHistory[amount-1].substring(11));
+            ShowSportDetail(screenHistory[amount - 1].substring(11));
+        } else if(screenHistory[amount-1].contains("EventDetail")) {
+            ShowEventDetail(screenHistory[amount-1].substring(11));
         } else {
             setScreen(screenHistory[amount-1]);
         }
@@ -278,6 +281,24 @@ public class ScreensController extends StackPane {
             setScreen("SportEnrollment"+name);
         } catch (Exception e) {
             System.out.println("ScreensController: showSportEnrollment, Error message: " + e.getMessage());
+        }
+    }
+    public void showEventEnrollment(String name) {
+        if(screens.containsKey("EventEnrollment" + name))
+            screens.remove("EventEnrollment" + name);
+        try {
+            Event e = _model.eventByName(name);
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("EventEnrolment/EventEnrolment.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((EventEnrolmentController) myScreenController).ShowEvent(e);
+            screens.put("EventEnrollment" + name, loadScreen);
+
+            setScreen("EventEnrollment"+name);
+        } catch (Exception e) {
+            System.out.println("ScreensController: showEventEnrollment, Error message: " + e.getMessage());
         }
     }
 

@@ -1,5 +1,6 @@
 package HighFid.Screens.SportDetail;
 
+import HighFid.Model.Enrolment;
 import HighFid.Model.Model;
 import HighFid.Model.Profile;
 import HighFid.Model.Sport;
@@ -136,9 +137,11 @@ public class SportDetailController implements Initializable, ControlledScreen {
         prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
         for(int i = 0; i < _model.getProfile().enrolments.length; ++i) {
-            if(_model.getProfile().enrolments[i].sport.name.equals(s.name)) {
+            Enrolment e = _model.getProfile().enrolments[i];
+            if(e.type == Enrolment.ENROLMENT_TYPE.SPORT && e.sport.name.equals(s.name)) {
                 btnEnrol.setVisible(false);
                 btnUnenrol.setVisible(true);
+                break;
             } else {
                 btnEnrol.setVisible(true);
                 btnUnenrol.setVisible(false);

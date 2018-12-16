@@ -15,6 +15,7 @@ public class Enrolment {
     public Time endTime;
     public String place;
     public Sport sport;
+    public Event event;
     public ENROLMENT_TYPE type;
 
     public Enrolment(DayOfWeek dayOfWeek, Time beginTime, Time endTime, String place, Sport sport, ENROLMENT_TYPE type) {
@@ -26,5 +27,11 @@ public class Enrolment {
         this.place = place;
         this.sport = sport;
         this.type = type;
+    }
+
+    public Enrolment(Date day, Event e) {
+        this.day = day;
+        this.event = e;
+        type = ENROLMENT_TYPE.EVENT;
     }
 }
