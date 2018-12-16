@@ -134,6 +134,15 @@ public class SportDetailController implements Initializable, ControlledScreen {
         wanneerContent.setText(s.wanneer);
         prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
+        for(int i = 0; i < _model.getProfile().enrolments.length; ++i) {
+            if(_model.getProfile().enrolments[i].sport.name.equals(s.name)) {
+                btnEnrol.setVisible(false);
+                btnUnenrol.setVisible(true);
+            } else {
+                btnEnrol.setVisible(true);
+                btnUnenrol.setVisible(false);
+            }
+        }
     }
 
 
@@ -150,7 +159,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
     //Setter
     public void setModel(Model model) {
         _model = model;
-        //TODO: Check if person is enrolled
     }
 
     @FXML

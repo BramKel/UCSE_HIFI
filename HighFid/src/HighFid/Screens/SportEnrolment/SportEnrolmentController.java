@@ -185,7 +185,7 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
     public void handleEnrolment(ActionEvent event) {
         for(int i = 0; i < tblView.getItems().size(); ++i) {
             if(tblView.getItems().get(i).getColSelect().isSelected()) {
-                Enrolment e = new Enrolment(s.days[i], s.beginTimes[i], s.endTimes[i], s.places[i], s);
+                Enrolment e = new Enrolment(s.days[i], s.beginTimes[i], s.endTimes[i], s.places[i], s, Enrolment.ENROLMENT_TYPE.SPORT);
                 _model.getProfile().addEnrolment(e);
             }
         }

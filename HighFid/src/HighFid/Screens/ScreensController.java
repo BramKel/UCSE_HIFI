@@ -163,7 +163,12 @@ public class ScreensController extends StackPane {
             newScreens[i] = screenHistory[i];
         }
         screenHistory = newScreens;
-        setScreen(screenHistory[amount-1]);
+        if(screenHistory[amount-1].contains("SportDetail")) {
+            //recheck for enrolment
+            ShowSportDetail(screenHistory[amount-1].substring(11));
+        } else {
+            setScreen(screenHistory[amount-1]);
+        }
     }
     /**
      * Public function unloadScreen
