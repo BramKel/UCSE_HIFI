@@ -12,12 +12,13 @@ import org.json.simple.JSONObject;
 public class SportKaart {
 
     //Public enum
-    public enum SK_STATUS {Active, Inactive, NONE}
+    public enum SK_STATUS {ACTIVE, INACTIVE, NONE}
 
     //Private members
     private SK_STATUS skStatus;
     private String activated;
     private String validUntil;
+    private String Mut;
 
     /**
      * Constructor
@@ -36,6 +37,7 @@ public class SportKaart {
         this.setSkStatus(SK_STATUS.NONE);
         this.setActivated("");
         this.setValidUntil("");
+        this.setMut("");
     }
 
     //Public Methods
@@ -51,6 +53,7 @@ public class SportKaart {
         JSONSportkaart.put("skstatus", this.getSkStatus().toString());
         JSONSportkaart.put("activated", this.getActivated());
         JSONSportkaart.put("validuntil", this.getValidUntil());
+        JSONSportkaart.put("mut", this.getMut());
         return JSONSportkaart;
     }
 
@@ -64,7 +67,8 @@ public class SportKaart {
     public static boolean checkJSON(JSONObject JSONSportkaart) {
         boolean ok = JSONSportkaart.get("skstatus") != null &&
                 JSONSportkaart.get("activated") != null &&
-                JSONSportkaart.get("validuntil") != null;
+                JSONSportkaart.get("validuntil") != null &&
+                JSONSportkaart.get("mut") != null;
         return ok;
     }
 
@@ -78,6 +82,7 @@ public class SportKaart {
         this.setSkStatus(SK_STATUS.valueOf((String) JSONSportkaart.get("skstatus")));
         this.setActivated((String) JSONSportkaart.get("activated"));
         this.setValidUntil((String) JSONSportkaart.get("validuntil"));
+        this.setMut((String) JSONSportkaart.get("mut"));
     }
 
     //Getters & Setters
@@ -98,5 +103,11 @@ public class SportKaart {
     }
     public void setValidUntil(String validUntil) {
         this.validUntil = validUntil;
+    }
+    public String getMut() {
+        return Mut;
+    }
+    public void setMut(String mut) {
+        Mut = mut;
     }
 }
