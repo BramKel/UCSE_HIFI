@@ -1,10 +1,12 @@
 package HighFid.Screens;
 
 //Personal Imports
+import HighFid.Model.Event;
 import HighFid.Model.Model;
 import HighFid.Model.Sport;
 import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
+import HighFid.Screens.EventDetail.EventDetailController;
 import HighFid.Screens.SportDetail.SportDetailController;
 import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
@@ -55,6 +57,7 @@ public class ScreensController extends StackPane {
         loadScreen("Profile", "Profile/Profile.fxml");
         loadScreen("SportKaart", "SportKaart/SportKaart.fxml");
         loadScreen("Enrolment", "Enrolment/Enrolment.fxml");
+        loadScreen("EventsPage", "EventsPage/EventsPage.fxml");
     }
 
     //Setter
@@ -191,6 +194,8 @@ public class ScreensController extends StackPane {
         setScreen("Login");
     }
 
+    public void showEventsPage() {setScreen("EventsPage");}
+
     public void showMainMenu(){
         setScreen("MainMenu");
     }
@@ -214,6 +219,25 @@ public class ScreensController extends StackPane {
             screens.put("SportDetail" + name, loadScreen);
 
             setScreen("SportDetail"+name);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    public void ShowEventDetail(String name) {
+        if(screens.containsKey("EventDetail" + name))
+            screens.remove("EventDetail" + name);
+
+        try{
+            Event e = _model.eventByName(name);
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("EventDetail/EventDetail.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((EventDetailController) myScreenController).ShowEvent(e);
+            screens.put("EventDetail" + name, loadScreen);
+
+            setScreen("EventDetail"+name);
         } catch (Exception e) {
             System.out.println(e.toString());
         }
