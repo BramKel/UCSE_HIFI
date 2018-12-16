@@ -115,4 +115,6 @@ public class ChallengeOverviewController implements Initializable, ControlledScr
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview();}
     @FXML
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
+    @FXML
+    private void showEventsPage(ActionEvent event) {_controller.showEventsPage();}
 }

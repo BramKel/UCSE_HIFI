@@ -20,6 +20,7 @@ public class Model {
     private String name;
     private Profile profile;
     private Sport[] sports = new Sport[0];
+    private Event[] events = new Event[0];
 
     //Using simple arrays now, but could easily be read in from an actual database after the prototype stage
     private String[] achievementNames = {"Eerste stapjes", "Groentje", "Expert", "Balsporter", "Atleet", "Zwemmer",
@@ -39,6 +40,7 @@ public class Model {
     public Model() {
         this.setProfile(new Profile());
         ReadSports();
+        ReadEvents();
         //this.fromJSON("Test.json");
     }
 
@@ -74,6 +76,29 @@ public class Model {
 
         }
 
+    }
+    public Event[] getEvents() {return events;}
+    public void ReadEvents() {
+        try{
+            JSONObject sports = JsonIO.readJSONFile("events.json");
+            JSONArray sportsList = ((JSONArray) sports.get("eventsList"));
+            for(int i = 0; i < sportsList.size(); ++i) {
+                JSONObject JSONSport = ((JSONObject) sportsList.get(i));
+                Event e = new Event();
+                e.fromJSON(JSONSport);
+                AddEvent(e);
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+        }
+    }
+    private void AddEvent(Event e) {
+        Event[] newEvents = new Event[events.length +1];
+        for(int i = 0; i < events.length; i++)
+            newEvents[i] = events[i];
+        newEvents[events.length] = e;
+        events = newEvents;
     }
     private void AddSport(Sport s) {
         Sport[] newSports = new Sport[sports.length + 1];
@@ -128,6 +153,13 @@ public class Model {
                 return sports[i];
         }
         return new Sport();
+    }
+    public Event eventByName(String name) {
+        for(int i = 0; i < events.length; i++) {
+            if(events[i].naam.compareTo(name) == 0)
+                return events[i];
+        }
+        return new Event();
     }
 
     /**
