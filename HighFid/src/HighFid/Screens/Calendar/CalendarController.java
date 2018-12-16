@@ -132,12 +132,7 @@ public class CalendarController implements Initializable, ControlledScreen {
                         final String n = name;
                         session = true;
 
-                        btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
-                            @Override
-                            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
-                                _controller.ShowSportDetail(n);
-                            }
-                        });
+
                     }
                 }
             }
@@ -169,6 +164,13 @@ public class CalendarController implements Initializable, ControlledScreen {
                         detailsPane.setVisible(true);
                         lblLocation.setText(p);
                         lblTitle.setText(n);
+
+                        btnDetails.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                            @Override
+                            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                                _controller.ShowSportDetail(n);
+                            }
+                        });
                     }
                 });
             } else {
@@ -176,8 +178,6 @@ public class CalendarController implements Initializable, ControlledScreen {
                     @Override
                     public void handle(javafx.scene.input.MouseEvent mouseEvent) {
                         detailsPane.setVisible(false);
-                        lblLocation.setText(p);
-                        lblTitle.setText(n);
                     }
                 });
             }

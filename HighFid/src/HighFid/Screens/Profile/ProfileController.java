@@ -36,7 +36,7 @@ public class ProfileController implements Initializable, ControlledScreen {
     @FXML
     private Region regNONE;
     @FXML
-    private Button btnSK;
+    private Button btnSK, btnSport;
 
     /**
      * Public function initialize
@@ -92,6 +92,7 @@ public class ProfileController implements Initializable, ControlledScreen {
                 imOTHER.setVisible(true);
                 regNONE.setVisible(false);
                 btnSK.setVisible(false);
+                btnSport.setVisible(true);
                 break;
             case NONE:
                 imSTUD_SP.setVisible(false);
@@ -142,4 +143,7 @@ public class ProfileController implements Initializable, ControlledScreen {
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
     @FXML
     private void showEventsPage(ActionEvent event) {_controller.showEventsPage();}
+
+    @FXML
+    private void showSport(ActionEvent event) { _controller.ShowSportDetail("Basketbal"); }
 }

@@ -89,6 +89,7 @@
                   <Image url="@/Profile/QR-code.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnSport" layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showSport" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sporten" visible="false" />
          </children></AnchorPane>
     </children>
 

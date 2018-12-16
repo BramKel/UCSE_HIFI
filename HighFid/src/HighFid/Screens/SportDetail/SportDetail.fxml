@@ -158,6 +158,11 @@
                      <font>
                         <Font size="18.0" />
                      </font></Button>
+                  <Button fx:id="btnView" layoutX="93.0" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showInschrijvingen" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijvingen bekijken" visible="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
         </content>

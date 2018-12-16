@@ -1,6 +1,7 @@
 package HighFid.Screens.SportDetail;
 
 import HighFid.Model.Model;
+import HighFid.Model.Profile;
 import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
@@ -37,7 +38,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     VBox vbox;
     @FXML
-    private Button btnEnrol, btnUnenrol;
+    private Button btnEnrol, btnUnenrol, btnView;
 
     /**
      * Public function initialize
@@ -145,6 +146,10 @@ public class SportDetailController implements Initializable, ControlledScreen {
         }
 
         this.s = s;
+
+        if (_model.getProfile().getId() == Profile.ID_types.SPORTLK && s.name.equals("Basketbal")) {
+            btnView.setVisible(true);
+        }
     }
 
 
@@ -160,7 +165,9 @@ public class SportDetailController implements Initializable, ControlledScreen {
     }
     //Setter
     public void setModel(Model model) {
+
         _model = model;
+
     }
 
     @FXML
@@ -173,5 +180,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
     @FXML
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
-
+    @FXML
+    private void showInschrijvingen(ActionEvent event) { _controller.showInschrijvingen(); }
 }
