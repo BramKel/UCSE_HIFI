@@ -43,7 +43,8 @@ public class ScreensController extends StackPane {
         loadScreen("Login", "Login/Login.fxml");
         loadScreen("MainMenu", "MainMenu/MainMenu.fxml");
         loadScreen("Profile", "Profile/Profile.fxml");
-        loadScreen("SportKaart", "Sportkaart/SportKaart.fxml");
+        loadScreen("SportKaart", "SportKaart/SportKaart.fxml");
+        loadScreen("Enrolment", "Enrolment/Enrolment.fxml");
     }
 
     //Setter
@@ -163,5 +164,9 @@ public class ScreensController extends StackPane {
 
     public void showSportKaart() {
         setScreen("SportKaart");
+    }
+
+    public void showEnrollment() {
+        setScreen("Enrolment");
     }
 }

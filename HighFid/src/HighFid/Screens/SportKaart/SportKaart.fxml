@@ -87,7 +87,7 @@
                  </graphic>
              </Button>
             <Pane fx:id="pnPopup" opacity="0.75" prefHeight="684.0" prefWidth="411.0" style="-fx-background-color: darkgrey;" />
-            <Pane fx:id="pnPopupText" layoutX="25.0" layoutY="224.0" prefHeight="224.0" prefWidth="355.0" style="-fx-background-color: white;">
+            <Pane fx:id="pnPopupText" layoutX="25.0" layoutY="224.0" prefHeight="224.0" prefWidth="355.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 2;">
                <children>
                   <Label layoutX="7.0" layoutY="14.0" text="Aanvragen van een sportkaart">
                      <font>

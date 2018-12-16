@@ -37,7 +37,7 @@
             <Label fx:id="lblOrg" layoutX="178.0" layoutY="101.0" text="[Profile organisation]" />
             <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="35.0" prefWidth="268.0" text="Pas gegevens aan" />
             <Button layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" />
-            <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
+            <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
             <Button layoutX="69.0" layoutY="464.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je challenges" />
             <Button layoutX="69.0" layoutY="511.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" />
 

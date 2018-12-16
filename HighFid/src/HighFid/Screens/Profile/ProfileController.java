@@ -122,6 +122,10 @@ public class ProfileController implements Initializable, ControlledScreen {
     public void showSportKaart(ActionEvent event) {
         _controller.showSportKaart();
     }
+    @FXML
+    public void showEnrolment(ActionEvent event) {
+        _controller.showEnrollment();
+    }
 
     @FXML
     public void showLogin(ActionEvent event) {
