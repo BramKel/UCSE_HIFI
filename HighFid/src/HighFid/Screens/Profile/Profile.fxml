@@ -23,7 +23,7 @@
                   <Image url="@/Profile/STUD_NO_SP.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imOTHER" fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imOTHER" fitHeight="211.0" fitWidth="150.0" layoutX="14.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Profile/SPORTLK.png" />
                </image>
@@ -35,11 +35,11 @@
             </Label>
             <Label fx:id="lblAge" layoutX="178.0" layoutY="77.0" text="[Profile age]" />
             <Label fx:id="lblOrg" layoutX="178.0" layoutY="101.0" text="[Profile organisation]" />
-            <Button layoutX="178.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Pas gegevens aan" />
-            <Button layoutX="69.0" layoutY="331.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Sportkaart" />
-            <Button layoutX="69.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
-            <Button layoutX="69.0" layoutY="427.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je challenges" />
-            <Button layoutX="69.0" layoutY="474.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" />
+            <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="35.0" prefWidth="268.0" text="Pas gegevens aan" />
+            <Button layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" />
+            <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
+            <Button layoutX="69.0" layoutY="464.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="Bekijk je challenges" />
+            <Button layoutX="69.0" layoutY="511.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" />
 
              <Button layoutX="-4.0" layoutY="609.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
                  <graphic>
@@ -86,6 +86,11 @@
                      </ImageView>
                  </graphic>
              </Button>
+            <ImageView fitHeight="130.0" fitWidth="111.0" layoutX="178.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Profile/QR-code.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
     </children>
 

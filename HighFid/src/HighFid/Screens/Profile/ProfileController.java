@@ -6,12 +6,11 @@ import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
-import javax.imageio.ImageIO;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -65,7 +64,7 @@ public class ProfileController implements Initializable, ControlledScreen {
         lblName.setText(_model.getProfile().getfName() + " " + _model.getProfile().getlName());
         lblAge.setText(_model.getProfile().getAge());
         lblOrg.setText(_model.getProfile().getOrg());
-        switch(_model.getProfile().getId()){
+        switch(_model.getProfile().getId()) {
             case STUD_SP:
                 imSTUD_SP.setVisible(true);
                 imSTUD_NO_SP.setVisible(false);
@@ -97,12 +96,35 @@ public class ProfileController implements Initializable, ControlledScreen {
                 regNONE.setVisible(true);
                 break;
         }
-        //inView
     }
+
+    /**
+     * Private method handleEditButton
+     * Handles the edit process
+     *
+     * @param event unused
+     */
+    @FXML
+    private void handleEditButton(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Fout");
+        alert.setHeaderText("Sorry, deze feature is niet uitgewerkt, probeer iets anders.");
+        alert.showAndWait();
+    }
+
 
     @FXML
     public void showMainMenu(ActionEvent event) {
         _controller.showMainMenu();
+    }
+
+    @FXML
+    public void showSportKaart(ActionEvent event) {
+        _controller.showSportKaart();
+    }
+    @FXML
+    public void showEnrolment(ActionEvent event) {
+        _controller.showEnrollment();
     }
 
     @FXML
