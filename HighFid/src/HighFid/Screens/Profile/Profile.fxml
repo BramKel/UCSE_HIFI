@@ -5,35 +5,43 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
-    <children>
-        <AnchorPane prefHeight="730.0" prefWidth="411.0">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
          <children>
-            <Region fx:id="regNONE" layoutX="14.0" layoutY="30.0" prefHeight="215.0" prefWidth="150.0" style="-fx-background-color: lightgrey;" />
-            <ImageView fx:id="imSTUD_SP" fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+             <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
+                 <children>
+                     <Label fx:id="title" alignment="CENTER" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="360.0" text="Je Profiel">
+                         <font>
+                             <Font name="System Bold" size="24.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </Pane>
+            <Region fx:id="regNONE" layoutX="14.0" layoutY="54.0" prefHeight="215.0" prefWidth="150.0" style="-fx-background-color: lightgrey;" />
+            <ImageView fx:id="imSTUD_SP" fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Profile/STUD_SP.png" />
                </image></ImageView>
-            <ImageView fx:id="imSTUD_NO_SP" fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imSTUD_NO_SP" fitHeight="220.0" fitWidth="150.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Profile/STUD_NO_SP.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imOTHER" fitHeight="211.0" fitWidth="150.0" layoutX="14.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imOTHER" fitHeight="211.0" fitWidth="150.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Profile/SPORTLK.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblName" layoutX="178.0" layoutY="40.0" text="[Profile name]">
+            <Label fx:id="lblName" layoutX="178.0" layoutY="60.0" text="[Profile name]">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblAge" layoutX="178.0" layoutY="77.0" text="[Profile age]" />
-            <Label fx:id="lblOrg" layoutX="178.0" layoutY="101.0" text="[Profile organisation]" />
+            <Label fx:id="lblAge" layoutX="178.0" layoutY="97.0" text="[Profile age]" />
+            <Label fx:id="lblOrg" layoutX="178.0" layoutY="121.0" text="[Profile organisation]" />
             <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="35.0" prefWidth="268.0" text="Pas gegevens aan" />
             <Button fx:id="btnSK" layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" />
             <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" />
@@ -84,13 +92,10 @@
                      </ImageView>
                  </graphic>
              </Button>
-            <ImageView fitHeight="130.0" fitWidth="111.0" layoutX="178.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="130.0" fitWidth="111.0" layoutX="178.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Profile/QR-code.png" />
                </image>
             </ImageView>
             <Button fx:id="btnSport" layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showSport" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sporten" visible="false" />
          </children></AnchorPane>
-    </children>
-
-</AnchorPane>
