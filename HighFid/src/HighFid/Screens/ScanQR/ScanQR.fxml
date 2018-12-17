@@ -8,14 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="447.0" prefWidth="158.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.ScanQR.ScanQRController">
    <children>
       <AnchorPane layoutY="-5.0" prefHeight="50.0" prefWidth="411.0">
          <children>
             <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
                <children>
-                  <Label fx:id="title" alignment="CENTER" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="360.0" text="Campusrun">
+                  <Label fx:id="title" alignment="CENTER" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="360.0" text="QR code scannen">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -74,15 +73,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="73.0" layoutY="136.0" mnemonicParsing="false" onAction="#scan">
-                     <graphic>
-                        <ImageView fx:id="imgQR" fitHeight="305.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/QR/scan.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <ImageView fx:id="imgQR" fitHeight="305.0" fitWidth="249.0" layoutX="130.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/QR/scan.gif" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
