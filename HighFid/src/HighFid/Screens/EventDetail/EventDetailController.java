@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextFlow;
 
@@ -49,6 +50,11 @@ public class EventDetailController implements Initializable, ControlledScreen {
     @FXML
     Button btnEnrol, btnUnenrol;
 
+    @FXML
+    private Pane pnPopup, pnPopupText;
+    @FXML
+    private Label lblPopupText;
+
     /**
      * Public function initialize
      * Initialize the screen
@@ -64,9 +70,9 @@ public class EventDetailController implements Initializable, ControlledScreen {
                 _controller.goToPreviousScreen();
             }
         });
+        pnPopup.setVisible(false);
+        pnPopupText.setVisible(false);
         //dataTable.lookup("TableHeaderRow").setVisible(false);
-
-
     }
     private void ShowImage(String name) {
         String path = "Events/" + name + ".png";
@@ -129,6 +135,26 @@ public class EventDetailController implements Initializable, ControlledScreen {
     public void setModel(Model model) {
         _model = model;
     }
+
+    @FXML
+    public void openPopup(ActionEvent event) {
+        lblPopupText.setText("Uitschrijven voor " + this.event.naam);
+        pnPopup.setVisible(true);
+        pnPopupText.setVisible(true);
+    }
+
+    @FXML
+    public void handleUnEnrolment(ActionEvent event){
+        _model.getProfile().removeEnrolment(this.event.naam);
+        _controller.ShowEventDetail(this.event.naam);
+    }
+
+    @FXML
+    public void closePopup(ActionEvent event) {
+        pnPopup.setVisible(false);
+        pnPopupText.setVisible(false);
+    }
+
     @FXML
     private void showProfile(ActionEvent event) {
         _controller.showProfile();

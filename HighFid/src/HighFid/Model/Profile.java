@@ -101,7 +101,10 @@ public class Profile {
                     enrolments[i] = null;
                 }
             } else {
-                //Handle evenement
+                if(enrolments[i].event.naam.equals(name)) {
+                    count++;
+                    enrolments[i] = null;
+                }
             }
         }
         Enrolment[] newEnrolments = new Enrolment[this.enrolments.length - count];

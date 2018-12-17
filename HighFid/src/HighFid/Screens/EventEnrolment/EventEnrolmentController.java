@@ -53,7 +53,6 @@ public class EventEnrolmentController implements Initializable, ControlledScreen
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         backBtn.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
-        //dataTable.lookup("TableHeaderRow").setVisible(false);
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
         btnPopupOk.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
@@ -106,7 +105,9 @@ public class EventEnrolmentController implements Initializable, ControlledScreen
         Enrolment e = new Enrolment(this.event.date, this.event);
         _model.getProfile().addEnrolment(e);
 
-        if(_model.getProfile().getSportKaart().getSkStatus() == SportKaart.SK_STATUS.ACTIVE) {
+        if(_model.getProfile().getSportKaart().getSkStatus() == SportKaart.SK_STATUS.ACTIVE && this.event.prijsMK == 0) {
+            openPopup(null);
+        } else if(_model.getProfile().getSportKaart().getSkStatus() != SportKaart.SK_STATUS.ACTIVE && this.event.prijsZK == 0) {
             openPopup(null);
         } else {
             openPaymentPopup();
