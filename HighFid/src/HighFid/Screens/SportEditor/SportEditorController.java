@@ -49,7 +49,7 @@ public class SportEditorController implements Initializable, ControlledScreen {
     @FXML
     VBox vbox;
     @FXML
-    private Button btnEnrol, btnUnenrol, btnView, uploadPhoto, saveBtn, cancelBtn, closeMsg;
+    private Button btnEnrol, btnUnenrol, btnView, uploadPhoto, saveBtn, cancelBtn, closeMsg,addDateBtn;
     @FXML
     TableView<DateWrapper> dateTable;
     @FXML
@@ -97,7 +97,13 @@ public class SportEditorController implements Initializable, ControlledScreen {
                 if(sport == null)
                     return;
                 _model.ReplaceSport(s.name, sport);
-                _controller.ShowSportDetail(sport.name);
+                _controller.showMainMenu();
+            }
+        });
+        addDateBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                AddDummyDate();
             }
         });
         cancelBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -207,6 +213,11 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
         dateTable.getItems().setAll(dates);
 
+
+    }
+    private void AddDummyDate() {
+        DateWrapper wrapper = new DateWrapper(DayOfWeek.MONDAY, Time.valueOf("00:00:00"), Time.valueOf("00:00:00"), "Hasselt");
+        dateTable.getItems().add(wrapper);
 
     }
     private void ShowFormatError(String value, String type) {
