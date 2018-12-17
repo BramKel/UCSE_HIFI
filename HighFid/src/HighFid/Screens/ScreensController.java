@@ -11,6 +11,7 @@ import HighFid.Screens.EventEnrolment.EventEnrolmentController;
 import HighFid.Screens.EventsPage.EventsPageController;
 import HighFid.Screens.MainMenu.MainMenuController;
 import HighFid.Screens.SportDetail.SportDetailController;
+import HighFid.Screens.SportEditor.SportEditorController;
 import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -258,6 +259,24 @@ public class ScreensController extends StackPane {
             screens.put("SportDetail" + name, loadScreen);
 
             setScreen("SportDetail"+name);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    public void ShowSportEditor(Sport s) {
+        if(screens.containsKey("SportEditor" + s.name))
+            screens.remove("SportEditor" + s.name);
+
+        try{
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SportEditor/SportEditor.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((SportEditorController) myScreenController).ShowSport(s);
+            screens.put("SportEditor" + s.name, loadScreen);
+
+            setScreen("SportEditor"+s.name);
         } catch (Exception e) {
             System.out.println(e.toString());
         }

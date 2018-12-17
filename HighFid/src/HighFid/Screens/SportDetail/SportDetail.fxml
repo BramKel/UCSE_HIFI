@@ -172,7 +172,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="editBtn" layoutX="50.0" layoutY="210.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Bewerken">
+                  <Button fx:id="editBtn" layoutX="50.0" layoutY="210.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEditor" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Bewerken">
                      <font>
                         <Font size="18.0" />
                      </font>
