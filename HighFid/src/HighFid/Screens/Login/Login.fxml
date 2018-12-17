@@ -21,8 +21,8 @@
          </font>
       </Label>
       <Label layoutX="72.0" layoutY="304.0" text="Meld je aan om te beginnen" />
-      <Button fx:id="btnLogin" layoutX="72.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="35.0" prefWidth="268.0" text="Log in!" />
-      <Button fx:id="btnRegister" layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="268.0" text="Registreer" />
+      <Button fx:id="btnLogin" layoutX="72.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="35.0" prefWidth="268.0" text="Log in!" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;"/>
+      <Button fx:id="btnRegister" layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="268.0" text="Registreer" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="105.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/logo-ssl-big.png" />

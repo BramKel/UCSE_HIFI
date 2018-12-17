@@ -149,21 +149,21 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven">
+                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijven">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#openPopup" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Uitschrijven" visible="false">
+                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#openPopup" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Uitschrijven" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
-                  <Button fx:id="btnView" layoutX="93.0" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showInschrijvingen" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijvingen bekijken" visible="false">
+                  <Button fx:id="btnView" layoutX="93.0" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showInschrijvingen" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijvingen bekijken" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="317.0" layoutY="5.0" mnemonicParsing="false" onAction="#showScanQR">
+                  <Button layoutX="317.0" layoutY="5.0" mnemonicParsing="false" onAction="#showScanQR" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;">
                      <graphic>
                         <ImageView fx:id="imgQR" fitHeight="88.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -183,9 +183,9 @@
                      <Font name="System Bold" size="24.0" />
                  </font>
              </Label>
-             <Button layoutX="44.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleUnEnrolment" prefHeight="35.0" prefWidth="268.0" text="Ja, schrijf me uit" />
+             <Button layoutX="44.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleUnEnrolment" prefHeight="35.0" prefWidth="268.0" text="Ja, schrijf me uit" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
              <Label layoutX="32.0" layoutY="49.0" prefHeight="35.0" prefWidth="285.0" text="Ben je zeker dat je je wilt uitschrijven?" wrapText="true" />
-             <Button layoutX="44.0" layoutY="142.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="35.0" prefWidth="268.0" text="Neen, ga terug" />
+             <Button layoutX="44.0" layoutY="142.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="35.0" prefWidth="268.0" text="Neen, ga terug" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
             <Pane fx:id="pnPopup" layoutX="-18.0" layoutY="-237.0" opacity="0.75" prefHeight="734.0" prefWidth="411.0" style="-fx-background-color: lightgrey;" />
          </children></Pane>
     </children>
