@@ -103,7 +103,7 @@ public class SportEditorController implements Initializable, ControlledScreen {
         cancelBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-
+                pnPopupText.setVisible(true);
             }
         });
         /*pnPopup.setVisible(false);
@@ -343,7 +343,9 @@ public class SportEditorController implements Initializable, ControlledScreen {
             return false;
         return true;
     }
-
+    @FXML void closePopup(ActionEvent event) {
+        pnPopupText.setVisible(false);
+    }
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
     @FXML
