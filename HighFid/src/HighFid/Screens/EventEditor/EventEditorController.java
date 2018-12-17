@@ -35,7 +35,7 @@ public class EventEditorController implements Initializable, ControlledScreen {
     private TextArea txtDescription;
 
     @FXML
-    private Pane pnPopup, pnPopupText, pnDiscard, pnSuccess;
+    private Pane pnPopup, pnPopupText, pnDiscard, pnSuccess, pnDemo;
     @FXML
     private Label lblErrorMessage, lblSuccessTitle, lblSuccessText;
     @FXML
@@ -52,11 +52,18 @@ public class EventEditorController implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         backBtn.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
         btnDiscard.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
-        btnSuccess.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
+        btnSuccess.setOnMouseClicked(mouseEvent -> {
+            if(isNewEvent) {
+                _controller.showEventsPage();
+            } else {
+                _controller.goToPreviousScreen();
+            }
+        });
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
         pnDiscard.setVisible(false);
         pnSuccess.setVisible(false);
+        pnDemo.setVisible(false);
     }
 
     private void ShowImage(String name) {
@@ -74,11 +81,18 @@ public class EventEditorController implements Initializable, ControlledScreen {
         this.e = e;
         if(e.naam.length() == 0)
             isNewEvent = true;
-        title.setText(e.naam);
-        if(isNewEvent)
+        if(isNewEvent) {
             title.setText("Nieuw evemenent aanmaken");
-        ShowImage(e.naam);
-        txtTitle.setText(e.naam);
+            txtTitle.setText("Ijsberen");
+            txtTitle.setDisable(true);
+            ShowImage("Ijsberen");
+            showDemo();
+        }
+        else {
+            title.setText("Evenement bewerken");
+            txtTitle.setText(e.naam);
+            ShowImage(e.naam);
+        }
         txtDescription.setText(e.beschrijving);
         txtPriceSK.setText(Integer.toString(e.prijsMK));
         txtPriceNoSK.setText(Integer.toString(e.prijsZK));
@@ -136,21 +150,22 @@ public class EventEditorController implements Initializable, ControlledScreen {
             openErrorPopup(errormessage);
         } else {
             if(this.isNewEvent) {
-                //TODO: handle new event
-            } else {
-                this.e.naam = txtTitle.getText();
-                this.e.beschrijving = txtDescription.getText();
-                try {
-                    this.e.date = this.e.dateFormat.parse(txtDate.getText());
-                } catch (ParseException e1) {
-                    e1.printStackTrace();
-                    Calendar today = Calendar.getInstance();
-                    today.set(Calendar.HOUR_OF_DAY, 0);
-                    this.e.date = today.getTime();
-                }
-                this.e.prijsMK = Integer.parseInt(txtPriceSK.getText());
-                this.e.prijsZK = Integer.parseInt(txtPriceNoSK.getText());
+                this.e = _model.eventByName("Ijsberen");
+                this.e.isRemoved = false;
             }
+            this.e.naam = txtTitle.getText();
+            this.e.beschrijving = txtDescription.getText();
+            try {
+               this.e.date = this.e.dateFormat.parse(txtDate.getText());
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+                Calendar today = Calendar.getInstance();
+                today.set(Calendar.HOUR_OF_DAY, 0);
+                 this.e.date = today.getTime();
+            }
+            this.e.prijsMK = Integer.parseInt(txtPriceSK.getText());
+            this.e.prijsZK = Integer.parseInt(txtPriceNoSK.getText());
+
             String title;
             String text;
             if(isNewEvent) {
@@ -200,6 +215,16 @@ public class EventEditorController implements Initializable, ControlledScreen {
         lblSuccessTitle.setText(title);
         lblSuccessText.setText(text);
         pnSuccess.setVisible(true);
+    }
+
+    public void showDemo() {
+        pnPopup.setVisible(true);
+        pnDemo.setVisible(true);
+    }
+    @FXML
+    public void closeDemo(ActionEvent event) {
+        pnPopup.setVisible(false);
+        pnDemo.setVisible(false);
     }
 
     /**

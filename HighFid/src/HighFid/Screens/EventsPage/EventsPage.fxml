@@ -85,7 +85,7 @@
                               </Label>
                               <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/Events/Zweefvliegen.png" />
+                                    <Image url="@/Events/Ijsberen.png" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" layoutX="135.0" layoutY="75.0" minWidth="254.0" text="Trotseer het koude water!" textFill="#1492ba">
