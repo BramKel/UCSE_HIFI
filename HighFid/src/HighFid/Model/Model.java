@@ -43,6 +43,16 @@ public class Model {
         ReadEvents();
         //this.fromJSON("Test.json");
     }
+    public void ReplaceSport(String oldName, Sport s) {
+        if(oldName.length() == 0)
+            oldName = "Badminton";
+        for(int i = 0; i < sports.length; i++) {
+            if(sports[i].name.toLowerCase().compareTo(oldName.toLowerCase()) == 0) {
+                sports[i] = s;
+                sports[i].isRemoved = false;
+            }
+        }
+    }
 
     //Getters & Setters
     public String getName() {
