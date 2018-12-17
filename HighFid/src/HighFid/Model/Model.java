@@ -66,16 +66,18 @@ public class Model {
     }
     public void setProfile(Profile profile) {
         this.profile = profile;
-        if(profile.getId() != Profile.ID_types.COORD) {
-            for(int i = 0; i < sports.length; i++)
-                sports[i].isRemoved = false;
-        }
 
     }
     public String[] getAchNames() { return this.achievementNames; }
     public String[] getAchDesc() { return this.achievementDesc; }
     public boolean[] getAchGot() { return this.achievementGot; }
 
+    public void RefreshSports() {
+        if(profile.getId() != Profile.ID_types.COORD) {
+            for(int i = 0; i < sports.length; i++)
+                sports[i].isRemoved = false;
+        }
+    }
     public void ReadSports() {
         try{
             JSONObject sports = JsonIO.readJSONFile("sports.json");
