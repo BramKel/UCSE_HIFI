@@ -210,6 +210,12 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
         datePlace.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("place"));
         datePlace.setCellFactory(TextFieldTableCell.forTableColumn());
+        datePlace.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DateWrapper, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<DateWrapper, String> t) {
+                ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPlace(t.getNewValue());
+            }
+        });
 
         dateTable.getItems().setAll(dates);
 
