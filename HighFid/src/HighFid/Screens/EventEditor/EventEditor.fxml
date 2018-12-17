@@ -170,5 +170,16 @@
                <Button fx:id="btnSuccess" layoutX="62.0" layoutY="88.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Oke" />
            </children>
        </Pane>
+       <Pane fx:id="pnDemo" layoutX="5.0" layoutY="307.0" prefHeight="133.0" prefWidth="398.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 30; -fx-background-radius: 30;">
+           <children>
+               <Label layoutX="50.0" layoutY="14.0" text="Demo versie">
+                   <font>
+                       <Font name="System Bold" size="24.0" />
+                   </font>
+               </Label>
+               <Label layoutX="50.0" layoutY="47.0" prefHeight="35.0" prefWidth="285.0" text="In de demoversie is het enkel mogelijk een evenement genaamd &quot;Ijsberen&quot; aan te maken" wrapText="true" />
+               <Button layoutX="62.0" layoutY="88.0" mnemonicParsing="false" onAction="#closeDemo" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Oke" />
+           </children>
+       </Pane>
    </children>
 </AnchorPane>
