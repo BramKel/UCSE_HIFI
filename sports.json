@@ -34,7 +34,8 @@
       "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nGeen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen",
       "name": "Atletiek",
       "aanbod": "Vast avondprogramma",
-      "niveau": "Beginners tot gevorderden"
+      "niveau": "Beginners tot gevorderden",
+	  "isRemoved": "false"
     },
 {
       "daysList": [
@@ -52,7 +53,8 @@
       "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nGeen les op feest- en brugdagen, 19 november 2018 (jobbeurs), tijdens de kerstvakantie en 2de week paasvakantie (15/4).",
       "name": "Basketbal",
       "aanbod": "Vast avondprogramma",
-      "niveau": "Beginners tot gevorderden"
+      "niveau": "Beginners tot gevorderden",
+	  "isRemoved": "false"
     },
 	{
 	"daysList": [
@@ -76,7 +78,27 @@
       "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\nVoor de lessen die doorgaan in Fitlink: geen les op feest- en brugdagenm, 19 november 2018 (jobbeurs) en tijdens de kerstvakantie en 2de week paasvakantie (15/4).\n\nVoor de lessen die doorgaan in PXL: geen les op feest en brugdagen van 08/01/19 t.e.m. 08/02/19 tijdens de herfst-, kerst- en paasvakantie",
       "name": "Badminton",
       "aanbod": "Vast avondprogramma",
-      "niveau": "Beginners tot gevorderden"
+      "niveau": "Beginners tot gevorderden",
+	  "isRemoved": "false"
+	},
+	{
+	"daysList": [
+        {
+          "beginTime": "18:00:00",
+          "endTime": "19:00:00",
+          "day": "WEDNESDAY",
+          "place": "Basic Fit, Diepenbeek"
+        }
+      ],
+      "descr": "Hip hop is een dansstijl die vraagt om veel energie en creativiteit. Hip hop moves zijn ‘cool’!\nIn deze lessen leer je een variatie van mooie, vloeiende en vlugge bewegingen op vlotte, hedendaagse R&B en hip hop muziek!",
+      "prijsZonderKaart": "2",
+      "quote": "THE HUMAN BODY IS THE BEST WORK OF ART!",
+      "prijsMetKaart": "0",
+      "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\n\nGeen les op feest- en brugdagen; tijdens de kerstvakantie en 2de week paasvakantie (17/4).",
+      "name": "Hip Hop",
+      "aanbod": "Vast avondprogramma",
+      "niveau": "Beginners tot gevorderden",
+	  "isRemoved": "true"
 	}
   ]
 }

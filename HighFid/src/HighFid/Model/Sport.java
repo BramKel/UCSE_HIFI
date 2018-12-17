@@ -13,6 +13,7 @@ public class Sport {
     public Time[] beginTimes = new Time[0];
     public Time[] endTimes = new Time[0];
     public String[] places = new String[0];
+    public boolean isRemoved = false;
     //Date[] dates;
 
 
@@ -45,6 +46,7 @@ public class Sport {
         JSONSport.put("wanneer", this.wanneer);
         JSONSport.put("prijsMetKaart", "" + prijsMetKaart);
         JSONSport.put("prijsZonderKaart", "" + prijsZonderkaart);
+        JSONSport.put("isRemoved", Boolean.toString(isRemoved));
         JSONArray dayList = new JSONArray();
         for(int i = 0; i < days.length; i++) {
             JSONObject JSONDay = new JSONObject();
@@ -89,6 +91,7 @@ public class Sport {
         this.wanneer = (String) JSONSport.get("wanneer");
         this.prijsMetKaart = Integer.parseInt((String) JSONSport.get("prijsMetKaart"));
         this.prijsZonderkaart = Integer.parseInt((String) JSONSport.get("prijsZonderKaart"));
+        this.isRemoved = Boolean.valueOf((String) JSONSport.get("isRemoved"));
         JSONArray daysList = ((JSONArray) JSONSport.get("daysList"));
         for(int i = 0; i < daysList.size(); ++i) {
             JSONObject JSONDay = ((JSONObject) daysList.get(i));

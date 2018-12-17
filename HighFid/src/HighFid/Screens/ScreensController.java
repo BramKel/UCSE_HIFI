@@ -8,6 +8,7 @@ import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.EventDetail.EventDetailController;
 import HighFid.Screens.EventEnrolment.EventEnrolmentController;
+import HighFid.Screens.MainMenu.MainMenuController;
 import HighFid.Screens.SportDetail.SportDetailController;
 import HighFid.Screens.SportEnrolment.SportEnrolmentController;
 import javafx.animation.KeyFrame;
@@ -202,6 +203,21 @@ public class ScreensController extends StackPane {
     public void showEventsPage() {setScreen("EventsPage");}
 
     public void showMainMenu(){
+        if(screens.containsKey("MainMenu"))
+            screens.remove("MainMenu");
+        try{
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainMenu/MainMenu.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((MainMenuController) myScreenController).Refresh();
+            screens.put("MainMenu", loadScreen);
+
+            setScreen("MainMenu");
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
         setScreen("MainMenu");
     }
 

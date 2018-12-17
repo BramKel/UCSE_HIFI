@@ -1,4 +1,4 @@
-package HighFid.Screens.SportDetail;
+package HighFid.Screens.SportEditor;
 
 import HighFid.Model.Enrolment;
 import HighFid.Model.Model;
@@ -18,13 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import javax.swing.*;
 import java.net.URL;
 import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
 
-public class SportDetailController implements Initializable, ControlledScreen {
+public class SportEditorController implements Initializable, ControlledScreen {
     //Private members
     private ScreensController _controller;
     private Model _model;
@@ -36,16 +35,16 @@ public class SportDetailController implements Initializable, ControlledScreen {
     @FXML
     ImageView backBtn, imgQR;
     @FXML
-    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent, removeTitle;
+    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
     @FXML
     AnchorPane anchorPane;
     @FXML
     VBox vbox;
     @FXML
-    private Button btnEnrol, btnUnenrol, btnView, editBtn, removeBtn, QRScanBtn;
+    private Button btnEnrol, btnUnenrol, btnView;
 
     @FXML
-    private Pane pnPopup, pnPopupText, removePopup;
+    private Pane pnPopup, pnPopupText;
     @FXML
     private Label lblPopupText;
 
@@ -67,8 +66,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
 
-
-
+        //dataTable.lookup("TableHeaderRow").setVisible(false);
 
 
     }
@@ -159,25 +157,13 @@ public class SportDetailController implements Initializable, ControlledScreen {
             }
         }
 
-        //Special screen for teacher
+        this.s = s;
+
         if (_model.getProfile().getId() == Profile.ID_types.SPORTLK && s.name.equals("Basketbal")) {
             btnView.setVisible(true);
             String path = "QR/icon.png";
             imgQR.setImage(new Image(path));
             imgQR.setVisible(true);
-        } else {
-            btnView.setVisible(false);
-            QRScanBtn.setVisible(false);
-        }
-
-        //Special screen for coordinator
-        if (_model.getProfile().getId() == Profile.ID_types.COORD) {
-            editBtn.setVisible(true);
-            removeBtn.setVisible(true);
-            btnEnrol.setVisible(false);
-        } else {
-            editBtn.setVisible(false);
-            removeBtn.setVisible(false);
         }
     }
 
@@ -221,22 +207,6 @@ public class SportDetailController implements Initializable, ControlledScreen {
     public void closePopup(ActionEvent event) {
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
-    }
-
-    @FXML
-    public void OpenRemovePopup(ActionEvent event) {
-        removeTitle.setText(s.name + " verwijderen");
-        removePopup.setVisible(true);
-    }
-    @FXML
-    public void handleRemove(ActionEvent event) {
-        s.isRemoved = true;
-        removePopup.setVisible(false);
-        showMainMenu(null);
-    }
-    @FXML
-    public void closeRemovePopup(ActionEvent event) {
-        removePopup.setVisible(false);
     }
 
     @FXML
