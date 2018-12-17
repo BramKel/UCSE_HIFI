@@ -29,9 +29,6 @@ public class Main extends Application {
     public Main() {
         _controller = new ScreensController(new Model());
         _controller.showLogin();
-
-        String path = "Sports/Atletiek.png";
-        Image img = new Image(path);
     }
 
     /**

@@ -52,11 +52,11 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
     private ObservableList<TableCol> list = FXCollections.observableArrayList();
 
     @FXML
-    private Pane pnPopup, pnPopupText, pnPopupPayment;
+    private Pane pnPopup, pnPopupText, pnPopupPayment, pnError;
     @FXML
-    private Label lblPopupText;
+    private Label lblPopupText, lblPopupErrorText;
     @FXML
-    private Button btnPopupOk;
+    private Button btnPopupOk, btnPopupErrorOk;
 
     /**
      * Public function initialize
@@ -73,6 +73,7 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
         pnPopupText.setVisible(false);
         btnPopupOk.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
         pnPopupPayment.setVisible(false);
+        pnError.setVisible(false);
     }
     private void ShowImage(String name) {
         String path = "Sports/" + name + ".png";
@@ -183,16 +184,22 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
 
     @FXML
     public void handleEnrolment(ActionEvent event) {
+        int count = 0;
         for(int i = 0; i < tblView.getItems().size(); ++i) {
             if(tblView.getItems().get(i).getColSelect().isSelected()) {
                 Enrolment e = new Enrolment(s.days[i], s.beginTimes[i], s.endTimes[i], s.places[i], s, Enrolment.ENROLMENT_TYPE.SPORT);
                 _model.getProfile().addEnrolment(e);
+                count++;
             }
         }
-        if(_model.getProfile().getSportKaart().getSkStatus() == SportKaart.SK_STATUS.ACTIVE) {
-            openPopup(null);
-        } else {
-            openPaymentPopup();
+        if(count == 0) {
+            showError(null);
+        }else {
+            if(_model.getProfile().getSportKaart().getSkStatus() == SportKaart.SK_STATUS.ACTIVE) {
+                openPopup(null);
+            } else {
+                openPaymentPopup();
+            }
         }
     }
 
@@ -215,6 +222,18 @@ public class SportEnrolmentController implements Initializable, ControlledScreen
         alert.showAndWait();
         pnPopupPayment.setVisible(false);
         openPopup(null);
+    }
+
+    @FXML
+    public void showError(ActionEvent event) {
+        pnPopup.setVisible(true);
+        pnError.setVisible(true);
+        lblPopupErrorText.setText("Inschrijven voor" + this.s.name);
+    }
+    @FXML
+    public void closeError(ActionEvent event) {
+        pnPopup.setVisible(false);
+        pnError.setVisible(false);
     }
 
     @FXML
