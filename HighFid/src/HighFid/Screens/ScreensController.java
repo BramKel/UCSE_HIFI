@@ -61,7 +61,6 @@ public class ScreensController extends StackPane {
         loadScreen("ChallengeOverview", "ChallengeOverview/ChallengeOverview.fxml");
         loadScreen("Profile", "Profile/Profile.fxml");
         loadScreen("SportKaart", "SportKaart/SportKaart.fxml");
-        loadScreen("Enrolment", "Enrolment/Enrolment.fxml");
         loadScreen("EventsPage", "EventsPage/EventsPage.fxml");
         loadScreen("Inschrijvingen", "Inschrijvingen/Inschrijvingen.fxml");
         loadScreen("ScanQR", "ScanQR/ScanQR.fxml");
@@ -402,9 +401,6 @@ public class ScreensController extends StackPane {
         setScreen("SportKaart");
     }
 
-    public void showEnrollment() {
-        setScreen("Enrolment");
-    }
 
     public void showInschrijvingen() { setScreen("Inschrijvingen"); }
 
