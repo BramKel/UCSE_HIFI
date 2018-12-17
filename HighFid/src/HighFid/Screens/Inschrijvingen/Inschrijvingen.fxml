@@ -80,12 +80,12 @@
                      </graphic>
                   </Button>
                   <TextArea layoutX="11.0" layoutY="359.0" prefHeight="150.0" prefWidth="384.0" text="Pushbericht hier invullen" />
-                  <Button layoutX="121.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkNone" text="Geen" />
+                  <Button layoutX="121.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkNone" text="Geen" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
                   <Label layoutX="29.0" layoutY="322.0" text="Selecteren:" />
-                  <Button layoutX="188.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkAll" text="Alle" />
-                  <Button layoutX="245.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkPaid" text="Betaald" />
-                  <Button layoutX="313.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkNotPaid" text="Niet betaald" />
-                  <Button layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#sendPush" prefHeight="40.0" prefWidth="377.0" text="Pushbericht sturen" />
+                  <Button layoutX="188.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkAll" text="Alle" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
+                  <Button layoutX="245.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkPaid" text="Betaald" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;"/>
+                  <Button layoutX="313.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkNotPaid" text="Niet betaald" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;"/>
+                  <Button layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#sendPush" prefHeight="40.0" prefWidth="377.0" text="Pushbericht sturen" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" />
                </children>
             </AnchorPane>
             <ScrollPane layoutY="50.0" minHeight="309.0" minWidth="411.0" prefHeight="309.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">

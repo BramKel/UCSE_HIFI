@@ -78,7 +78,7 @@
                      <graphic>
                         <ImageView fx:id="imgQR" fitHeight="305.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@QR/scan.jpg" />
+                              <Image url="@/QR/scan.jpg" />
                            </image>
                         </ImageView>
                      </graphic>

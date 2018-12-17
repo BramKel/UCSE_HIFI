@@ -118,7 +118,7 @@
                                     <Label layoutX="188.0" layoutY="46.0" prefHeight="22.0" prefWidth="56.0" text="Locatie:" />
                                     <Label layoutX="19.0" layoutY="49.0" text="Tijd:" />
                                     <Label fx:id="lblLocation" layoutX="244.0" layoutY="49.0" text="Sporthal Kiewit, Hasselt" />
-                                    <Button fx:id="btnDetails" layoutX="118.0" layoutY="86.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Details">
+                                    <Button fx:id="btnDetails" layoutX="118.0" layoutY="86.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Details">
                                        <font>
                                           <Font size="18.0" />
                                        </font>

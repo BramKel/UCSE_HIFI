@@ -115,12 +115,12 @@
                         <Label fx:id="prijsContent" layoutX="10.0" layoutY="198.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Gratis" wrapText="true" />
                      </children>
                   </VBox>
-                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Uitschrijven" visible="false" >
+                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Uitschrijven" visible="false" >
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showEventEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inschrijven" visible="true">
+                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showEventEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijven" visible="true">
                      <font>
                         <Font size="18.0" />
                      </font>
