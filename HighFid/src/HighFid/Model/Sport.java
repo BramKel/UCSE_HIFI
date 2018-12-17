@@ -29,7 +29,14 @@ public class Sport {
     }
 
     public Sport() {
-
+        this.name = "";
+        this.niveau = "";
+        this.wanneer = "";
+        this.aanbod = "";
+        this.prijsMetKaart = 0;
+        this.prijsZonderkaart = 0;
+        this.description = "";
+        this.quote = "";
     }
 
     public Sport(JSONObject JSONSport) {

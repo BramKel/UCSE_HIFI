@@ -74,6 +74,12 @@ public class MainMenuController implements Initializable, ControlledScreen {
                 _controller.ShowSportDetail("Badminton");
             }
         });
+        addPane.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+                showSportEditor(null);
+            }
+        });
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             ApplySearchTerm(newValue);
         });
@@ -194,6 +200,8 @@ public class MainMenuController implements Initializable, ControlledScreen {
         _model = model;
     }
 
+    @FXML
+    private void showSportEditor(ActionEvent event) {_controller.ShowSportEditor(new Sport());}
     @FXML
     private void showProfile(ActionEvent event) {
         _controller.showProfile();

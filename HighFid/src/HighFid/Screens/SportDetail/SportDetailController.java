@@ -198,7 +198,10 @@ public class SportDetailController implements Initializable, ControlledScreen {
         _model = model;
 
     }
-
+    @FXML
+    public void showSportEditor() {
+        _controller.ShowSportEditor(s);
+    }
     @FXML
     public void showSportEnrollment(){
         _controller.showSportEnrollment(s.name);

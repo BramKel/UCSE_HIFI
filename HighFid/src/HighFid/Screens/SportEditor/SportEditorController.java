@@ -10,8 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -21,6 +22,9 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.sql.Time;
 import java.time.DayOfWeek;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SportEditorController implements Initializable, ControlledScreen {
@@ -28,6 +32,7 @@ public class SportEditorController implements Initializable, ControlledScreen {
     private ScreensController _controller;
     private Model _model;
     private Sport s;
+    private boolean isNewEvent = false;
     @FXML
     ImageView imageView;
     @FXML
@@ -35,13 +40,19 @@ public class SportEditorController implements Initializable, ControlledScreen {
     @FXML
     ImageView backBtn, imgQR;
     @FXML
-    Label aanbodContent, descriptionContent, prijsContent, wanneerContent, niveauContent, dayContent, timeContent, placeContent;
+    TextArea descriptionContent;
+    @FXML
+    TextField aanbodContent, prijsContent, wanneerContent, niveauContent;
     @FXML
     AnchorPane anchorPane;
     @FXML
     VBox vbox;
     @FXML
     private Button btnEnrol, btnUnenrol, btnView;
+    @FXML
+    TableView<DateWrapper> dateTable;
+    @FXML
+    TableColumn<DateWrapper, String> dateDay, dateStart, dateEnd, datePlace;
 
     @FXML
     private Pane pnPopup, pnPopupText;
@@ -63,14 +74,16 @@ public class SportEditorController implements Initializable, ControlledScreen {
                 _controller.goToPreviousScreen();
             }
         });
-        pnPopup.setVisible(false);
-        pnPopupText.setVisible(false);
+        /*pnPopup.setVisible(false);
+        pnPopupText.setVisible(false);*/
 
         //dataTable.lookup("TableHeaderRow").setVisible(false);
 
 
     }
     private void ShowImage(String name) {
+        if(name.compareTo("") == 0)
+            name = "default";
         String path = "Sports/" + name + ".png";
 
         imageView.setImage(new Image(path));
@@ -93,19 +106,27 @@ public class SportEditorController implements Initializable, ControlledScreen {
     private void makeDateTxt(DayOfWeek[] days, Time[] begins, Time[] ends, String []places) {
 
         int amount = days.length;
-        String dayTxt = "";
-        String timeTxt = "";
-        String placeTxt = "";
+        List<DateWrapper> dates = new ArrayList<DateWrapper>();
 
         for(int i = 0; i < amount; i++) {
-
-            dayTxt += DayToStr(days[i]) + "\n";
-            timeTxt += begins[i].toString().substring(0,5) + " - " + ends[i].toString().substring(0,5) + "\n";
-            placeTxt += places[i] + "\n";
+            DateWrapper d = new DateWrapper(days[i], begins[i], ends[i], places[i]);
+            dates.add(d);
         }
-        dayContent.setText(dayTxt);
-        timeContent.setText(timeTxt);
-        placeContent.setText(placeTxt);
+
+        dateDay.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("day"));
+        dateDay.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        dateStart.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("begin"));
+        dateStart.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        dateEnd.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("end"));
+        dateEnd.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        datePlace.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("place"));
+        datePlace.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        dateTable.getItems().setAll(dates);
+
 
     }
     private String DayToStr(DayOfWeek day) {
@@ -137,34 +158,21 @@ public class SportEditorController implements Initializable, ControlledScreen {
     }
     public void ShowSport(Sport s) {
         this.s = s;
+        if(s.name.length() == 0)
+            isNewEvent = true;
         title.setText(s.name);
+        if(isNewEvent)
+            title.setText("Nieuwe sport aanmaken");
         ShowImage(s.name);
         descriptionContent.setText(s.description);
         aanbodContent.setText(s.description);
         niveauContent.setText(s.niveau);
         wanneerContent.setText(s.wanneer);
-        prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
+        if(!isNewEvent)
+            prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
-        for(int i = 0; i < _model.getProfile().enrolments.length; ++i) {
-            Enrolment e = _model.getProfile().enrolments[i];
-            if(e.type == Enrolment.ENROLMENT_TYPE.SPORT && e.sport.name.equals(s.name)) {
-                btnEnrol.setVisible(false);
-                btnUnenrol.setVisible(true);
-                break;
-            } else {
-                btnEnrol.setVisible(true);
-                btnUnenrol.setVisible(false);
-            }
-        }
 
         this.s = s;
-
-        if (_model.getProfile().getId() == Profile.ID_types.SPORTLK && s.name.equals("Basketbal")) {
-            btnView.setVisible(true);
-            String path = "QR/icon.png";
-            imgQR.setImage(new Image(path));
-            imgQR.setVisible(true);
-        }
     }
 
 
@@ -183,30 +191,6 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
         _model = model;
 
-    }
-
-    @FXML
-    public void showSportEnrollment(){
-        _controller.showSportEnrollment(s.name);
-    }
-
-    @FXML
-    public void openPopup(ActionEvent event) {
-        lblPopupText.setText("Uitschrijven voor " + s.name);
-        pnPopup.setVisible(true);
-        pnPopupText.setVisible(true);
-    }
-
-    @FXML
-    public void handleUnEnrolment(ActionEvent event){
-        _model.getProfile().removeEnrolment(s.name);
-        _controller.ShowSportDetail(s.name);
-    }
-
-    @FXML
-    public void closePopup(ActionEvent event) {
-        pnPopup.setVisible(false);
-        pnPopupText.setVisible(false);
     }
 
     @FXML
