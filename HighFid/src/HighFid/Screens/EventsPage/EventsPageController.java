@@ -62,6 +62,7 @@ public class EventsPageController implements Initializable, ControlledScreen {
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             ApplySearchTerm(newValue);
         });
+        addPane.setOnMouseClicked(event -> showEventEditor(null));
     }
     public void Refresh(){
         ApplySearchTerm("");
@@ -155,5 +156,10 @@ public class EventsPageController implements Initializable, ControlledScreen {
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
     @FXML
     private void showEventsPage(ActionEvent event) {_controller.showEventsPage();}
+
+    @FXML
+    private void showEventEditor(ActionEvent event) {
+        _controller.ShowEventEditor(new Event());
+    }
 
 }

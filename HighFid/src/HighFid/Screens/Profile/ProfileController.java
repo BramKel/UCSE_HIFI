@@ -85,6 +85,7 @@ public class ProfileController implements Initializable, ControlledScreen {
                 imSTUD_NO_SP.setVisible(false);
                 imOTHER.setVisible(true);
                 regNONE.setVisible(false);
+                btnSK.setVisible(false);
                 break;
             case SPORTLK:
                 imSTUD_SP.setVisible(false);

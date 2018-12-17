@@ -15,6 +15,14 @@
       "prijsMK": "40",
       "prijsZK": "20",
       "isRemoved": "false"
+    },
+    {
+      "datum": "25-12-2018",
+      "name": "Ijsberen",
+      "descr": "",
+      "prijsMK": "0",
+      "prijsZK": "0",
+      "isRemoved": "true"
     }
   ]
 }

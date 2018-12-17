@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportEditor.SportEditorController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportEditor.SportEditorController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -145,7 +145,7 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TableView fx:id="dateTable" editable="true" layoutY="100.0" prefHeight="200.0" prefWidth="383.0">
+                  <TableView fx:id="dateTable" editable="true" layoutY="100.0" prefHeight="200.0" prefWidth="383.0" visible="false">
                     <columns>
                       <TableColumn fx:id="dateDay" prefWidth="75.0" text="Dag" />
                       <TableColumn fx:id="dateStart" prefWidth="75.0" text="Starttijd" />

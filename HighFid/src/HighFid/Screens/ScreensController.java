@@ -7,6 +7,7 @@ import HighFid.Model.Sport;
 import HighFid.Screens.Calendar.CalendarController;
 import HighFid.Screens.ChallengeDetail.ChallengeDetailController;
 import HighFid.Screens.EventDetail.EventDetailController;
+import HighFid.Screens.EventEditor.EventEditorController;
 import HighFid.Screens.EventEnrolment.EventEnrolmentController;
 import HighFid.Screens.EventsPage.EventsPageController;
 import HighFid.Screens.MainMenu.MainMenuController;
@@ -298,6 +299,24 @@ public class ScreensController extends StackPane {
             setScreen("EventDetail"+name);
         } catch (Exception e) {
             System.out.println(e.toString());
+        }
+    }
+    public void ShowEventEditor(Event e) {
+        if(screens.containsKey("EventEditor" + e.naam))
+            screens.remove("EventEditor" + e.naam);
+
+        try{
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("EventEditor/EventEditor.fxml"));
+            Parent loadScreen = myLoader.load();
+            ControlledScreen myScreenController = myLoader.getController();
+            myScreenController.setScreenParent(this);
+            myScreenController.setModel(_model);
+            ((EventEditorController) myScreenController).showEvent(e);
+            screens.put("EventEditor" + e.naam, loadScreen);
+
+            setScreen("EventEditor"+e.naam);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
         }
     }
 

@@ -3,6 +3,7 @@ package HighFid.Model;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,7 +24,16 @@ public class Event {
         this.date = date;
     }
     public Event() {
-
+        this.naam = "";
+        this.beschrijving = "";
+        try {
+            this.date = dateFormat.parse("01-01-1970");
+        } catch (ParseException e) {
+            e.printStackTrace();
+            this.date = null;
+        }
+        this.prijsMK = 0;
+        this.prijsZK = 0;
     }
     public String getDateStr() {
         return dateFormat.format(date);

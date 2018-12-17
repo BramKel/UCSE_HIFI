@@ -72,6 +72,7 @@ public class EventDetailController implements Initializable, ControlledScreen {
         });
         pnPopup.setVisible(false);
         pnPopupText.setVisible(false);
+        removePopup.setVisible(false);
         //dataTable.lookup("TableHeaderRow").setVisible(false);
     }
     private void ShowImage(String name) {
@@ -197,4 +198,9 @@ public class EventDetailController implements Initializable, ControlledScreen {
     private void showCalendar(ActionEvent event){_controller.showCalendar(0); }
     @FXML
     private void showEventEnrollment(ActionEvent event) {_controller.showEventEnrollment(this.event.naam);}
+
+    @FXML
+    public void showEventEditor(ActionEvent event) {
+        _controller.ShowEventEditor(this.event);
+    }
 }
