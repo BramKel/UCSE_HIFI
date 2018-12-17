@@ -68,6 +68,8 @@ public class EventsPageController implements Initializable, ControlledScreen {
     public void Refresh(){
         if(_model.getProfile().getId() == Profile.ID_types.COORD)
             addPane.setVisible(true);
+        else
+            addPane.setVisible(false);
         ApplySearchTerm("");
     }
     private void ApplySearchTerm(String search) {
