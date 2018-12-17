@@ -3,7 +3,7 @@ package HighFid.Screens.EventsPage;
 //Personal imports
 import HighFid.Model.Event;
 import HighFid.Model.Model;
-import HighFid.Model.Sport;
+import HighFid.Model.Profile;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.beans.value.ChangeListener;
@@ -34,7 +34,7 @@ public class EventsPageController implements Initializable, ControlledScreen {
     private URL url;
 
     @FXML
-    Pane campusrunPane, zweefvliegenPane;
+    Pane addPane, campusrunPane, zweefvliegenPane;
     @FXML
     TextField searchField;
 
@@ -63,17 +63,25 @@ public class EventsPageController implements Initializable, ControlledScreen {
             ApplySearchTerm(newValue);
         });
     }
-
+    public void Refresh(){
+        ApplySearchTerm("");
+        if(_model.getProfile().getId() == Profile.ID_types.COORD)
+            addPane.setVisible(true);
+        ApplySearchTerm("");
+    }
     private void ApplySearchTerm(String search) {
         Event[] events= _model.getEvents();
         if(search.length() < 3) {
             for(int i = 0; i < events.length; i++) {
-                showEvent(events[i].naam);
+                if(!events[i].isRemoved)
+                    showEvent(events[i].naam);
+                else
+                    hideEvent(events[i].naam);
             }
             return;
         }
         for(int i = 0; i < events.length; i++) {
-            if(!events[i].ContainsSearchTerm(search))
+            if(events[i].isRemoved || !events[i].ContainsSearchTerm(search))
                 hideEvent(events[i].naam);
             else
                 showEvent(events[i].naam);
@@ -100,6 +108,10 @@ public class EventsPageController implements Initializable, ControlledScreen {
         }
         if(zweefvliegenPane.isVisible()) {
             zweefvliegenPane.setLayoutY(yCoor);
+            yCoor +=140;
+        }
+        if(addPane.isVisible()) {
+            addPane.setLayoutY(yCoor);
             yCoor +=140;
         }
 

@@ -11,6 +11,7 @@ public class Event {
     public String beschrijving;
     public Date date;
     public SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    public boolean isRemoved = false;
 
 
     public int prijsMK, prijsZK;
@@ -33,6 +34,7 @@ public class Event {
         JSONSport.put("descr", this.beschrijving);
         JSONSport.put("prijsMK", "" + prijsMK);
         JSONSport.put("prijsZK", "" + prijsZK);
+        JSONSport.put("isRemoved", Boolean.toString(isRemoved));
 
         JSONSport.put("datum", dateFormat.format(date));
         return JSONSport;
@@ -52,6 +54,7 @@ public class Event {
             this.prijsMK = Integer.parseInt((String) JSONSport.get("prijsMK"));
             this.prijsZK = Integer.parseInt((String) JSONSport.get("prijsZK"));
             this.date = dateFormat.parse((String) JSONSport.get("datum"));
+            this.isRemoved = Boolean.valueOf((String) JSONSport.get("isRemoved"));
         } catch (Exception e){
             System.out.println(e.toString());
         }

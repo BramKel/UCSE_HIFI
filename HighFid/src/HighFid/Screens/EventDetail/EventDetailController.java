@@ -3,7 +3,7 @@ package HighFid.Screens.EventDetail;
 import HighFid.Model.Enrolment;
 import HighFid.Model.Event;
 import HighFid.Model.Model;
-import HighFid.Model.Sport;
+import HighFid.Model.Profile;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
 import javafx.event.ActionEvent;
@@ -38,7 +38,7 @@ public class EventDetailController implements Initializable, ControlledScreen {
     @FXML
     ImageView imageView;
     @FXML
-    Label title;
+    Label title, removeTitle;
     @FXML
     ImageView backBtn;
     @FXML
@@ -48,10 +48,10 @@ public class EventDetailController implements Initializable, ControlledScreen {
     @FXML
     VBox vbox;
     @FXML
-    Button btnEnrol, btnUnenrol;
+    Button btnEnrol, btnUnenrol, editBtn, removeBtn, QRScanBtn;
 
     @FXML
-    private Pane pnPopup, pnPopupText;
+    private Pane pnPopup, pnPopupText, removePopup;
     @FXML
     private Label lblPopupText;
 
@@ -118,6 +118,16 @@ public class EventDetailController implements Initializable, ControlledScreen {
         }
 
         this.event = e;
+
+        //Special screen for coordinator
+        if (_model.getProfile().getId() == Profile.ID_types.COORD) {
+            editBtn.setVisible(true);
+            removeBtn.setVisible(true);
+            btnEnrol.setVisible(false);
+        } else {
+            editBtn.setVisible(false);
+            removeBtn.setVisible(false);
+        }
     }
 
 
@@ -156,11 +166,31 @@ public class EventDetailController implements Initializable, ControlledScreen {
     }
 
     @FXML
+    public void OpenRemovePopup(ActionEvent event) {
+        removeTitle.setText(this.event.naam + " verwijderen");
+        removePopup.setVisible(true);
+    }
+    @FXML
+    public void handleRemove(ActionEvent event) {
+        this.event.isRemoved = true;
+        removePopup.setVisible(false);
+        showEventsPage(null);
+    }
+    @FXML
+    public void closeRemovePopup(ActionEvent event) {
+        removePopup.setVisible(false);
+    }
+
+    @FXML
     private void showProfile(ActionEvent event) {
         _controller.showProfile();
     }
     @FXML
     private void showMainMenu(ActionEvent event){_controller.showMainMenu();}
+    @FXML
+    private void showEventsPage(ActionEvent event) {
+        _controller.showEventsPage();
+    }
     @FXML
     private void showChallengeOverview(ActionEvent event){_controller.showChallengeOverview(); }
     @FXML
