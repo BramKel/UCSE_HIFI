@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.Profile.ProfileController">
          <children>
              <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
                  <children>
@@ -43,9 +43,9 @@
             <Label fx:id="lblAge" layoutX="178.0" layoutY="97.0" text="[Profile age]" />
             <Label fx:id="lblOrg" layoutX="178.0" layoutY="121.0" text="[Profile organisation]" />
             <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Pas gegevens aan" />
-            <Button fx:id="btnSK" layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sportkaart" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" />
-            <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" text="Bekijk je inschrijvingen" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" />
-            <Button layoutX="69.0" layoutY="462.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" text="Uitloggen" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" />
+            <Button fx:id="btnSK" layoutX="69.0" layoutY="368.0" mnemonicParsing="false" onAction="#showSportKaart" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Bekijk je sportkaart" />
+            <Button layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showEnrolment" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Bekijk je inschrijvingen" />
+            <Button layoutX="69.0" layoutY="462.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Uitloggen" />
 
              <Button layoutX="-4.0" layoutY="655.0" maxHeight="75.0" maxWidth="82.0" minHeight="75.0" minWidth="82.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="75.0" prefWidth="82.0" text="Hoofd">
                  <graphic>
@@ -97,5 +97,5 @@
                   <Image url="@/Profile/QR-code.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnSport" layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showSport" prefHeight="35.0" prefWidth="268.0" text="Bekijk je sporten" visible="false" />
+            <Button fx:id="btnSport" layoutX="69.0" layoutY="416.0" mnemonicParsing="false" onAction="#showSport" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Bekijk je sporten" visible="false" />
          </children></AnchorPane>

@@ -51,7 +51,7 @@ public class ScanQRController implements Initializable, ControlledScreen {
             }
         });
 
-        String path = "QR/scan.jpg";
+        String path = "QR/scan.gif";
         imgQR.setImage(new Image(path));
         imgQR.setVisible(true);
 

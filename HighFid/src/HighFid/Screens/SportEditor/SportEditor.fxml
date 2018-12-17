@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportEditor.SportEditorController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportEditor.SportEditorController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -145,10 +145,10 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                   <Label layoutX="15.0" layoutY="595.0" text="Met Sportkaart:" />
+                   <Label layoutX="10.0" layoutY="595.0" text="Met Sportkaart:" />
                    <TextField fx:id="txtPriceSK" layoutX="119.0" layoutY="590.0" prefHeight="25.0" prefWidth="75.0" promptText="Met SK" />
                    <TextField fx:id="txtPriceNoSK" layoutX="119.0" layoutY="620.0" prefHeight="25.0" prefWidth="75.0" promptText="Zonder SK" />
-                   <Label layoutX="16.0" layoutY="625.0" text="zonder Sportkaart:" />
+                   <Label layoutX="10.0" layoutY="625.0" text="zonder Sportkaart:" />
                   <Label layoutY="650.0" text="Data:">
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -157,7 +157,11 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TableView fx:id="dateTable" editable="true" layoutX="5.0" layoutY="675.0" maxHeight="150.0" prefHeight="200.0" prefWidth="383.0">
+                  <Button fx:id="addDateBtn" layoutX="268.0" layoutY="650.0" maxHeight="25.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Datum toevoegen">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <TableView fx:id="dateTable" editable="true" layoutX="5.0" layoutY="680.0" maxHeight="150.0" prefHeight="200.0" prefWidth="383.0">
                     <columns>
                       <TableColumn fx:id="dateDay" prefWidth="75.0" text="Dag" />
                       <TableColumn fx:id="dateStart" prefWidth="75.0" text="Starttijd" />
@@ -168,12 +172,12 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button fx:id="saveBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Opslaan" textAlignment="CENTER">
+                  <Button fx:id="saveBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="840.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Opslaan" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwerpen" textAlignment="CENTER">
+                  <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="840.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwerpen" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -194,5 +198,17 @@
                   <Button fx:id="closeMsg" layoutX="75.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Sluiten" />
                </children></Pane>
          </children></Pane>
+      <Pane fx:id="pnPopupText" layoutX="25.0" layoutY="245.0" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 2;" visible="false">
+         <children>
+            <Label fx:id="lblPopupText" layoutX="32.0" layoutY="14.0" text="Aanpassingen verwerpen">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="44.0" layoutY="95.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Ja, aanpassingen verwerpen" />
+            <Label layoutX="32.0" layoutY="49.0" prefHeight="35.0" prefWidth="285.0" text="Ben je zeker dat je alle aanpassingen ongedaan wil maken?" wrapText="true" />
+            <Button layoutX="44.0" layoutY="142.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Neen, ga terug" />
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
