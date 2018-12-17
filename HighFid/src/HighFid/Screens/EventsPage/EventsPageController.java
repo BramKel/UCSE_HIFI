@@ -34,7 +34,7 @@ public class EventsPageController implements Initializable, ControlledScreen {
     private URL url;
 
     @FXML
-    Pane addPane, campusrunPane, zweefvliegenPane;
+    Pane addPane, campusrunPane, zweefvliegenPane, ijsberenPane;
     @FXML
     TextField searchField;
 
@@ -59,13 +59,13 @@ public class EventsPageController implements Initializable, ControlledScreen {
                 _controller.ShowEventDetail("Zweefvliegen");
             }
         });
+        ijsberenPane.setOnMouseClicked(mouseEvent -> _controller.ShowEventDetail("Ijsberen"));
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             ApplySearchTerm(newValue);
         });
         addPane.setOnMouseClicked(event -> showEventEditor(null));
     }
     public void Refresh(){
-        ApplySearchTerm("");
         if(_model.getProfile().getId() == Profile.ID_types.COORD)
             addPane.setVisible(true);
         ApplySearchTerm("");
@@ -97,6 +97,9 @@ public class EventsPageController implements Initializable, ControlledScreen {
         if(name.compareTo("Zweefvliegen") == 0) {
             zweefvliegenPane.setVisible(false);
         }
+        if(name.compareTo("Ijsberen") == 0) {
+            ijsberenPane.setVisible(false);
+        }
 
         PlaceBlocks();
     }
@@ -111,6 +114,10 @@ public class EventsPageController implements Initializable, ControlledScreen {
             zweefvliegenPane.setLayoutY(yCoor);
             yCoor +=140;
         }
+        if(ijsberenPane.isVisible()) {
+            ijsberenPane.setLayoutY(yCoor);
+            yCoor += 140;
+        }
         if(addPane.isVisible()) {
             addPane.setLayoutY(yCoor);
             yCoor +=140;
@@ -124,6 +131,9 @@ public class EventsPageController implements Initializable, ControlledScreen {
         }
         if(name.compareTo("Zweefvliegen") == 0) {
             zweefvliegenPane.setVisible(true);
+        }
+        if(name.compareTo("Ijsberen") == 0) {
+            ijsberenPane.setVisible(true);
         }
 
         PlaceBlocks();

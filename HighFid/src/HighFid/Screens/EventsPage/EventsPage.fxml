@@ -57,7 +57,7 @@
                               </Label>
                            </children>
                         </Pane>
-                         <Pane fx:id="addPane" layoutX="10.0" layoutY="290.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
+                         <Pane fx:id="addPane" layoutX="10.0" layoutY="426.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
                              <children>
                                  <Label alignment="CENTER" contentDisplay="TOP" layoutX="135.0" layoutY="20.0" minWidth="254.0" text="Evenement" wrapText="true">
                                      <font>
@@ -76,6 +76,25 @@
                                  </Label>
                              </children>
                          </Pane>
+                        <Pane fx:id="ijsberenPane" layoutX="10.0" layoutY="289.0" minHeight="130.0" minWidth="389.0" prefHeight="130.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 2; -fx-border-color: black;">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="TOP" layoutX="135.0" layoutY="30.0" minWidth="254.0" text="Ijsberen" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Bold" size="32.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/Events/Zweefvliegen.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="135.0" layoutY="75.0" minWidth="254.0" text="Trotseer het koude water!" textFill="#1492ba">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
               </content>
