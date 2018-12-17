@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -36,28 +37,31 @@ public class SportEditorController implements Initializable, ControlledScreen {
     @FXML
     ImageView imageView;
     @FXML
-    Label title;
+    Label title, msgTitle, msgContent;
     @FXML
     ImageView backBtn, imgQR;
     @FXML
     TextArea descriptionContent;
     @FXML
-    TextField aanbodContent, prijsContent, wanneerContent, niveauContent;
+    TextField aanbodContent, txtPriceSK, txtPriceNoSK, wanneerContent, niveauContent, titleContent;
     @FXML
     AnchorPane anchorPane;
     @FXML
     VBox vbox;
     @FXML
-    private Button btnEnrol, btnUnenrol, btnView;
+    private Button btnEnrol, btnUnenrol, btnView, uploadPhoto, saveBtn, cancelBtn, closeMsg;
     @FXML
     TableView<DateWrapper> dateTable;
     @FXML
     TableColumn<DateWrapper, String> dateDay, dateStart, dateEnd, datePlace;
+    @FXML
+    Pane msgBox;
 
     @FXML
     private Pane pnPopup, pnPopupText;
     @FXML
     private Label lblPopupText;
+
 
     /**
      * Public function initialize
@@ -72,6 +76,34 @@ public class SportEditorController implements Initializable, ControlledScreen {
             @Override
             public void handle(javafx.scene.input.MouseEvent mouseEvent) {
                 _controller.goToPreviousScreen();
+            }
+        });
+        closeMsg.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                msgBox.setVisible(false);
+            }
+        });
+        uploadPhoto.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                ShowMessage("Demo versie", "In de huidige versie van de demo is het niet mogelijk een afbeelding te kiezen. Dit wordt vanzelf afgehandeld.");
+            }
+        });
+        saveBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Sport sport = formSport();
+                if(sport == null)
+                    return;
+                _model.ReplaceSport(s.name, sport);
+                _controller.ShowSportDetail(sport.name);
+            }
+        });
+        cancelBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
             }
         });
         /*pnPopup.setVisible(false);
@@ -115,12 +147,60 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
         dateDay.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("day"));
         dateDay.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateDay.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DateWrapper, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<DateWrapper, String> t) {
+                String day = t.getNewValue();
+                if(DateWrapper.StringToDay(day) == null){
+                    String old = t.getOldValue();
+                    ShowFormatError(day, "dag");
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDay(old);
+                    // workaround for refreshing rendered values
+                    t.getTableView().getColumns().get(0).setVisible(false);
+                    t.getTableView().getColumns().get(0).setVisible(true);
+                } else {
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDay(day);
+                }
+            }
+        });
 
         dateStart.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("begin"));
         dateStart.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateStart.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DateWrapper, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<DateWrapper, String> t) {
+                String time = t.getNewValue();
+                if(DateWrapper.StringToTime(time) == null) {
+                    String old = t.getOldValue();
+                    ShowFormatError(time, "tijd");
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setBegin(old);
+                    // workaround for refreshing rendered values
+                    t.getTableView().getColumns().get(0).setVisible(false);
+                    t.getTableView().getColumns().get(0).setVisible(true);
+                } else {
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setBegin(time);
+                }
+            }
+        });
 
         dateEnd.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("end"));
         dateEnd.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateEnd.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DateWrapper, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<DateWrapper, String> t) {
+                String time = t.getNewValue();
+                if(DateWrapper.StringToTime(time) == null) {
+                    String old = t.getOldValue();
+                    ShowFormatError(time, "tijd");
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEnd(old);
+                    // workaround for refreshing rendered values
+                    t.getTableView().getColumns().get(0).setVisible(false);
+                    t.getTableView().getColumns().get(0).setVisible(true);
+                }else {
+                    ((DateWrapper) t.getTableView().getItems().get(t.getTablePosition().getRow())).setBegin(time);
+                }
+            }
+        });
 
         datePlace.setCellValueFactory(new PropertyValueFactory<DateWrapper, String>("place"));
         datePlace.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -129,6 +209,19 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
 
     }
+    private void ShowFormatError(String value, String type) {
+        String title = "Geen geldige " + type;
+        String msg = "De opgegeven waarde \"" + value + "\" is geen geldige waarde voor \"" + type + "\".";
+        ShowMessage(title,msg);
+
+    }
+    private void ShowMessage(String title, String message) {
+        msgTitle.setText(title);
+        msgContent.setText(message);
+        msgBox.setVisible(true);
+    }
+
+
     private String DayToStr(DayOfWeek day) {
         String result = "";
         switch(day) {
@@ -159,17 +252,28 @@ public class SportEditorController implements Initializable, ControlledScreen {
     public void ShowSport(Sport s) {
         this.s = s;
         if(s.name.length() == 0)
+        {
             isNewEvent = true;
-        title.setText(s.name);
-        if(isNewEvent)
+            ShowMessage("Demo versie", "Doordat dit een demo is, is het enkel mogelijk de sportsessie \"Badminton\" aan te maken.");
+        }
+        if(isNewEvent){
             title.setText("Nieuwe sport aanmaken");
-        ShowImage(s.name);
+            titleContent.setText("Badminton");
+            titleContent.setDisable(true);
+            ShowImage("Badminton");
+        }
+        else {
+            title.setText("Sport bewerken");
+            titleContent.setText(s.name);
+            ShowImage(s.name);
+        }
+
         descriptionContent.setText(s.description);
-        aanbodContent.setText(s.description);
+        aanbodContent.setText(s.aanbod);
         niveauContent.setText(s.niveau);
         wanneerContent.setText(s.wanneer);
-        if(!isNewEvent)
-            prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));
+        txtPriceSK.setText("" + s.prijsMetKaart);
+        txtPriceNoSK.setText("" + s.prijsZonderkaart);
         makeDateTxt(s.days, s.beginTimes, s.endTimes, s.places);
 
         this.s = s;
@@ -191,6 +295,53 @@ public class SportEditorController implements Initializable, ControlledScreen {
 
         _model = model;
 
+    }
+    private Sport formSport() {
+        if(!CheckForm())
+        {
+            ShowMessage("Incorrecte gegevens", "Gelieve alle gegevens correct in te vullen!");
+            return null;
+        }
+        String title = titleContent.getText();
+        String descr = descriptionContent.getText();
+        String quote = "LEEF JE UIT MET RACKET EN PLUIMPJE!";
+        String aanbod = aanbodContent.getText();
+        String niveau = niveauContent.getText();
+        String wanneer = wanneerContent.getText();
+        String prijsMK = txtPriceSK.getText();
+        String prijsZK = txtPriceNoSK.getText();
+
+        List<DateWrapper> dates = dateTable.getItems();
+        Sport s = new Sport(title, quote, descr, aanbod, niveau, wanneer, Integer.parseInt(prijsMK), Integer.parseInt(prijsZK));
+        for(int i = 0; i < dates.size(); i++) {
+            String day = dates.get(i).day;
+
+            s.AddSession(DateWrapper.StringToDay(day), dates.get(i).getBeginTime(), dates.get(i).getEndTime(), dates.get(i).place);
+        }
+        return s;
+
+    }
+    private boolean CheckForm() {
+        String title = titleContent.getText();
+        String descr = descriptionContent.getText();
+        String quote = "LEEF JE UIT MET RACKET EN PLUIMPJE!";
+        String aanbod = aanbodContent.getText();
+        String niveau = niveauContent.getText();
+        String wanneer = wanneerContent.getText();
+        String prijsMK = txtPriceSK.getText();
+        String prijsZK = txtPriceNoSK.getText();
+        if(title.length() == 0 || descr.length() == 0 || aanbod.length() == 0 || niveau.length() == 0 || wanneer.length() == 0 || prijsMK.length() == 0 || prijsZK.length() == 0)
+            return false;
+        try{
+            int prijs = Integer.parseInt(prijsMK);
+            prijs = Integer.parseInt(prijsZK);
+        } catch (Exception e) {
+            return false;
+        }
+        List<DateWrapper> dates = dateTable.getItems();
+        if(dates.size() == 0)
+            return false;
+        return true;
     }
 
     @FXML

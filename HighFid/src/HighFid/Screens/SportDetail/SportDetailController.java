@@ -142,7 +142,7 @@ public class SportDetailController implements Initializable, ControlledScreen {
         title.setText(s.name);
         ShowImage(s.name);
         descriptionContent.setText(s.description);
-        aanbodContent.setText(s.description);
+        aanbodContent.setText(s.aanbod);
         niveauContent.setText(s.niveau);
         wanneerContent.setText(s.wanneer);
         prijsContent.setText(makePriceTxt(s.prijsZonderkaart, s.prijsMetKaart));

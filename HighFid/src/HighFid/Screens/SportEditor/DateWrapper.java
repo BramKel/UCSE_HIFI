@@ -7,8 +7,8 @@ public class DateWrapper{
     public String day, begin, end, place;
     DateWrapper(DayOfWeek day, Time begin, Time end, String place) {
         this.day = DayToStr(day);
-        this.begin = begin.toString();
-        this.end = begin.toString();
+        this.begin = begin.toString().substring(0,5);
+        this.end = end.toString().substring(0,5);
         this.place = place;
     }
     public String getDay() {
@@ -36,7 +36,46 @@ public class DateWrapper{
     public void setPlace(String place) {
         this.place = place;
     }
+    public Time getBeginTime() {
+        begin += ":00";
+        return Time.valueOf(begin);
+    }
+    public Time getEndTime() {
+        end += ":00";
+        return Time.valueOf(end);
+    }
+    public static Time StringToTime(String time) {
+        try{
+            time += ":00";
+            Time t = Time.valueOf(time);
+            return t;
+        } catch (Exception e) {
+            return null;
+        }
 
+
+    }
+    public static DayOfWeek StringToDay(String day) {
+        day = day.toLowerCase();
+        switch(day) {
+            case "maandag":
+                return DayOfWeek.MONDAY;
+            case "dinsdag":
+                return DayOfWeek.TUESDAY;
+            case "woensdag":
+                return DayOfWeek.WEDNESDAY;
+            case "donderdag":
+                return DayOfWeek.THURSDAY;
+            case "vrijdag":
+                return DayOfWeek.FRIDAY;
+            case "zaterdag":
+                return DayOfWeek.SATURDAY;
+            case "zondag":
+                return DayOfWeek.SUNDAY;
+        }
+        return null;
+
+    }
     private String DayToStr(DayOfWeek day) {
         String result = "";
         switch(day) {

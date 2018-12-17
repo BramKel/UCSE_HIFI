@@ -92,7 +92,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="5.0" layoutY="250.0" text="Beschrijving:">
+                  <Label layoutX="5.0" layoutY="250.0" text="Titel:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -100,8 +100,17 @@
                         <Insets bottom="2.0" />
                      </padding>
                   </Label>
-                  <TextArea fx:id="descriptionContent" layoutX="5.0" layoutY="270.0" minWidth="383.0" prefHeight="100.0" prefWidth="383.0" text="Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! &#10;&#10;Blijf en/of word atletisch door de moeder der sporten: atletiek!Voor compititie-atleten maar ook voor recreanten.&#10;" wrapText="true" />
-                  <Label layoutX="5.0" layoutY="370.0" text="Aanbod:">
+                  <TextField fx:id="titleContent" layoutX="5.0" layoutY="270.0" minWidth="383.0" prefWidth="383.0" text="Vast avondprogramma" />
+                  <Label layoutY="295.0" text="Beschrijving:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.0" left="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextArea fx:id="descriptionContent" layoutX="5.0" layoutY="320.0" minWidth="383.0" prefHeight="100.0" prefWidth="383.0" text="Studentensport Limburg in samenwerking met Atletiekclub ADD Diepenbeek: Uithouding, kracht, snelheid! &#10;&#10;Blijf en/of word atletisch door de moeder der sporten: atletiek!Voor compititie-atleten maar ook voor recreanten.&#10;" wrapText="true" />
+                  <Label layoutX="5.0" layoutY="420.0" text="Aanbod:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -109,8 +118,8 @@
                         <Insets bottom="2.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="aanbodContent" layoutX="5.0" layoutY="395.0" minWidth="383.0" prefWidth="383.0" text="Vast avondprogramma" />
-                  <Label layoutY="420.0" text="Niveau:">
+                  <TextField fx:id="aanbodContent" layoutX="5.0" layoutY="445.0" minWidth="383.0" prefWidth="383.0" text="Vast avondprogramma" />
+                  <Label layoutY="470.0" text="Niveau:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -118,8 +127,8 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="niveauContent" layoutX="5.0" layoutY="445.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Beginners tot gevorderden" />
-                  <Label layoutY="470.0" text="Wanneer:">
+                  <TextField fx:id="niveauContent" layoutX="5.0" layoutY="495.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Beginners tot gevorderden" />
+                  <Label layoutY="520.0" text="Wanneer:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -127,8 +136,8 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="wanneerContent" layoutX="5.0" layoutY="495.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Vanaf oktober 2018 tot 31 mei 2019. Geen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen" />
-                  <Label layoutY="520.0" text="Prijs:">
+                  <TextField fx:id="wanneerContent" layoutX="5.0" layoutY="545.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Vanaf oktober 2018 tot 31 mei 2019. Geen lessen tijdens de schoolvakanties, geen lessen op feest- en brugdagen" />
+                  <Label layoutY="570.0" text="Prijzen:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -136,8 +145,11 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="prijsContent" layoutX="5.0" layoutY="545.0" maxWidth="383.0" minWidth="383.0" prefWidth="383.0" text="Met sportkaart gratis / zonder sportkaart €2 per les" />
-                  <Label layoutY="570.0" text="Data:">
+                   <Label layoutX="15.0" layoutY="595.0" text="Met Sportkaart:" />
+                   <TextField fx:id="txtPriceSK" layoutX="119.0" layoutY="590.0" prefHeight="25.0" prefWidth="75.0" promptText="Met SK" />
+                   <TextField fx:id="txtPriceNoSK" layoutX="119.0" layoutY="620.0" prefHeight="25.0" prefWidth="75.0" promptText="Zonder SK" />
+                   <Label layoutX="16.0" layoutY="625.0" text="zonder Sportkaart:" />
+                  <Label layoutY="650.0" text="Data:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -145,7 +157,7 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TableView fx:id="dateTable" editable="true" layoutY="100.0" prefHeight="200.0" prefWidth="383.0" visible="false">
+                  <TableView fx:id="dateTable" editable="true" layoutX="5.0" layoutY="675.0" maxHeight="150.0" prefHeight="200.0" prefWidth="383.0">
                     <columns>
                       <TableColumn fx:id="dateDay" prefWidth="75.0" text="Dag" />
                       <TableColumn fx:id="dateStart" prefWidth="75.0" text="Starttijd" />
@@ -156,7 +168,12 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button alignment="CENTER" contentDisplay="CENTER" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijven" textAlignment="CENTER">
+                  <Button fx:id="saveBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Opslaan" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwerpen" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -165,5 +182,17 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <Pane fx:id="msgBox" minHeight="734.0" minWidth="411.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(211,211,211,0.75);" visible="false">
+         <children>
+            <Pane layoutX="30.0" layoutY="267.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;">
+               <children>
+                  <Label fx:id="msgTitle" alignment="CENTER" contentDisplay="CENTER" minWidth="350.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="msgContent" alignment="TOP_LEFT" layoutX="10.0" layoutY="40.0" maxHeight="100.0" maxWidth="330.0" minHeight="100.0" minWidth="330.0" text="message" wrapText="true" />
+                  <Button fx:id="closeMsg" layoutX="75.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Sluiten" />
+               </children></Pane>
+         </children></Pane>
     </children>
 </AnchorPane>
