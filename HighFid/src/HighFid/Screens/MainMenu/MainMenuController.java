@@ -2,6 +2,7 @@ package HighFid.Screens.MainMenu;
 
 //Personal imports
 import HighFid.Model.Model;
+import HighFid.Model.Profile;
 import HighFid.Model.Sport;
 import HighFid.Screens.ControlledScreen;
 import HighFid.Screens.ScreensController;
@@ -105,12 +106,17 @@ public class MainMenuController implements Initializable, ControlledScreen {
             return false;
         return true;
     }
+    public void Refresh(){
+        ApplySearchTerm("");
+        if(_model.getProfile().getId() == Profile.ID_types.COORD)
+            addPane.setVisible(true);
+    }
 
     private void ApplySearchTerm(String search) {
         Sport[] sports = _model.getSports();
         if(search.length() < 3) {
             for(int i = 0; i < sports.length; i++) {
-                if(!isOutFiltered(sports[i]))
+                if(!sports[i].isRemoved && !isOutFiltered(sports[i]))
                     showSport(sports[i].name);
                 else
                     hideSport(sports[i].name);
@@ -118,7 +124,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
             return;
         }
         for(int i = 0; i < sports.length; i++) {
-            if(!sports[i].ContainsSearchTerm(search) || isOutFiltered(sports[i]))
+            if(sports[i].isRemoved || !sports[i].ContainsSearchTerm(search) || isOutFiltered(sports[i]))
                 hideSport(sports[i].name);
             else
                 showSport(sports[i].name);

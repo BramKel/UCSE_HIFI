@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportDetail.SportDetailController">
+<AnchorPane prefHeight="50.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFid.Screens.SportEditor.SportEditorController">
     <children>
       <Pane maxHeight="50.0" maxWidth="411.0" minHeight="50.0" minWidth="411.0" prefHeight="50.0" prefWidth="411.0" style="-fx-background-color: lightgrey;">
          <children>
@@ -85,7 +85,7 @@
                         <Image fx:id="image" url="@/Sports/Atletiek.png" />
                      </image>
                   </ImageView>
-                  <VBox fx:id="vbox" layoutX="5.0" layoutY="260.0" prefWidth="393.0">
+                  <VBox fx:id="vbox" layoutX="5.0" layoutY="220.0" prefWidth="393.0">
                      <children>
                         <Label text="Beschrijving:">
                            <font>
@@ -147,68 +147,16 @@
                               <Label fx:id="placeContent" minWidth="160.0" text="Demerstrand, Diepenbeek" wrapText="true" />
                            </children>
                         </HBox>
+                        <Button fx:id="btnEnrol" alignment="CENTER" contentDisplay="CENTER" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijven" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
                      </children>
                   </VBox>
-                  <Button fx:id="btnEnrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijven">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnUnenrol" layoutX="131.5" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#openPopup" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Uitschrijven" visible="false">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Button>
-                  <Button fx:id="btnView" layoutX="93.0" layoutY="220.0" minWidth="130.0" mnemonicParsing="false" onAction="#showInschrijvingen" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Inschrijvingen bekijken" visible="false">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="QRScanBtn" layoutX="317.0" layoutY="5.0" mnemonicParsing="false" onAction="#showScanQR" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;">
-                     <graphic>
-                        <ImageView fx:id="imgQR" fitHeight="88.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../assets/QR/icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="editBtn" layoutX="50.0" layoutY="210.0" minWidth="130.0" mnemonicParsing="false" onAction="#showSportEnrollment" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Bewerken">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="removeBtn" layoutX="213.0" layoutY="210.0" minWidth="130.0" mnemonicParsing="false" onAction="#OpenRemovePopup" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwijderen">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Pane fx:id="pnPopupText" layoutX="15.0" layoutY="235.0" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 2;" visible="false">
-         <children>
-             <Label fx:id="lblPopupText" layoutX="32.0" layoutY="14.0" text="Uitschrijven voor Atletiek">
-                 <font>
-                     <Font name="System Bold" size="24.0" />
-                 </font>
-             </Label>
-             <Button layoutX="44.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleUnEnrolment" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Ja, schrijf me uit" />
-             <Label layoutX="32.0" layoutY="49.0" prefHeight="35.0" prefWidth="285.0" text="Ben je zeker dat je je wilt uitschrijven?" wrapText="true" />
-             <Button layoutX="44.0" layoutY="142.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Neen, ga terug" />
-            <Pane fx:id="pnPopup" layoutX="-18.0" layoutY="-237.0" opacity="0.75" prefHeight="734.0" prefWidth="411.0" style="-fx-background-color: lightgrey;" />
-         </children></Pane>
-        <Pane fx:id="removePopup" layoutX="15.0" layoutY="235.0" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 2;" visible="false">
-            <children>
-                <Pane layoutX="-18.0" layoutY="-237.0" opacity="0.75" prefHeight="734.0" prefWidth="411.0" style="-fx-background-color: lightgrey;" />
-                <Label fx:id="removeTitle" layoutX="32.0" layoutY="14.0" text="Atletiek verwijderen">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
-                </Label>
-                <Button layoutX="44.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleRemove" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Ja, verwijder" />
-                <Label layoutX="32.0" layoutY="49.0" prefHeight="35.0" prefWidth="285.0" text="Bent u zeker dat u dit evenement wilt verwijderen?" wrapText="true" />
-                <Button layoutX="44.0" layoutY="142.0" mnemonicParsing="false" onAction="#closeRemovePopup" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: Black; -fx-border-radius: 30; -fx-background-radius: 30;" text="Neen, ga terug" />
-            </children></Pane>
     </children>
 </AnchorPane>
