@@ -36,7 +36,7 @@ public class ProfileController implements Initializable, ControlledScreen {
     @FXML
     private Region regNONE;
     @FXML
-    private Button btnSK, btnSport;
+    private Button btnSK, btnSport, btnIns;
 
     /**
      * Public function initialize
@@ -86,6 +86,7 @@ public class ProfileController implements Initializable, ControlledScreen {
                 imOTHER.setVisible(true);
                 regNONE.setVisible(false);
                 btnSK.setVisible(false);
+                btnIns.setVisible(false);
                 break;
             case SPORTLK:
                 imSTUD_SP.setVisible(false);

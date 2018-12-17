@@ -50,7 +50,7 @@ public class EventEditorController implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        backBtn.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
+        backBtn.setOnMouseClicked(mouseEvent -> openDiscardPopup(new ActionEvent()));
         btnDiscard.setOnMouseClicked(mouseEvent -> _controller.goToPreviousScreen());
         btnSuccess.setOnMouseClicked(mouseEvent -> {
             if(isNewEvent) {

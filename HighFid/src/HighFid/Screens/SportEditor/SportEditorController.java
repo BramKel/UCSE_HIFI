@@ -75,7 +75,7 @@ public class SportEditorController implements Initializable, ControlledScreen {
         backBtn.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent mouseEvent) {
-                _controller.goToPreviousScreen();
+                pnPopupText.setVisible(true);
             }
         });
         closeMsg.setOnMouseClicked(new EventHandler<MouseEvent>() {
