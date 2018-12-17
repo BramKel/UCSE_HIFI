@@ -145,10 +145,10 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                   <Label layoutX="15.0" layoutY="595.0" text="Met Sportkaart:" />
+                   <Label layoutX="10.0" layoutY="595.0" text="Met Sportkaart:" />
                    <TextField fx:id="txtPriceSK" layoutX="119.0" layoutY="590.0" prefHeight="25.0" prefWidth="75.0" promptText="Met SK" />
                    <TextField fx:id="txtPriceNoSK" layoutX="119.0" layoutY="620.0" prefHeight="25.0" prefWidth="75.0" promptText="Zonder SK" />
-                   <Label layoutX="16.0" layoutY="625.0" text="zonder Sportkaart:" />
+                   <Label layoutX="10.0" layoutY="625.0" text="zonder Sportkaart:" />
                   <Label layoutY="650.0" text="Data:">
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -157,7 +157,11 @@
                         <Insets bottom="2.0" left="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TableView fx:id="dateTable" editable="true" layoutX="5.0" layoutY="675.0" maxHeight="150.0" prefHeight="200.0" prefWidth="383.0">
+                  <Button fx:id="addDateBtn" layoutX="268.0" layoutY="650.0" maxHeight="25.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Datum toevoegen">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <TableView fx:id="dateTable" editable="true" layoutX="5.0" layoutY="680.0" maxHeight="150.0" prefHeight="200.0" prefWidth="383.0">
                     <columns>
                       <TableColumn fx:id="dateDay" prefWidth="75.0" text="Dag" />
                       <TableColumn fx:id="dateStart" prefWidth="75.0" text="Starttijd" />
@@ -168,12 +172,12 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button fx:id="saveBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Opslaan" textAlignment="CENTER">
+                  <Button fx:id="saveBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="840.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 30; -fx-border-radius: 30;" text="Opslaan" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="830.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwerpen" textAlignment="CENTER">
+                  <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="840.0" minWidth="130.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: red;" text="Verwerpen" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
