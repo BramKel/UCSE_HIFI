@@ -79,25 +79,6 @@
       "name": "Badminton",
       "aanbod": "Vast avondprogramma",
       "niveau": "Beginners tot gevorderden",
-	  "isRemoved": "false"
-	},
-	{
-	"daysList": [
-        {
-          "beginTime": "18:00:00",
-          "endTime": "19:00:00",
-          "day": "WEDNESDAY",
-          "place": "Basic Fit, Diepenbeek"
-        }
-      ],
-      "descr": "Hip hop is een dansstijl die vraagt om veel energie en creativiteit. Hip hop moves zijn ‘cool’!\nIn deze lessen leer je een variatie van mooie, vloeiende en vlugge bewegingen op vlotte, hedendaagse R&B en hip hop muziek!",
-      "prijsZonderKaart": "2",
-      "quote": "THE HUMAN BODY IS THE BEST WORK OF ART!",
-      "prijsMetKaart": "0",
-      "wanneer": "Vanaf oktober 2018 tot 31 mei 2019\n\nGeen les op feest- en brugdagen; tijdens de kerstvakantie en 2de week paasvakantie (17/4).",
-      "name": "Hip Hop",
-      "aanbod": "Vast avondprogramma",
-      "niveau": "Beginners tot gevorderden",
 	  "isRemoved": "true"
 	}
   ]

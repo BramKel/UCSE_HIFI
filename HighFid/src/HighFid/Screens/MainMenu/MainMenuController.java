@@ -107,9 +107,9 @@ public class MainMenuController implements Initializable, ControlledScreen {
         return true;
     }
     public void Refresh(){
-        ApplySearchTerm("");
         if(_model.getProfile().getId() == Profile.ID_types.COORD)
             addPane.setVisible(true);
+        ApplySearchTerm("");
     }
 
     private void ApplySearchTerm(String search) {
@@ -157,6 +157,10 @@ public class MainMenuController implements Initializable, ControlledScreen {
         }
         if(badmintonPane.isVisible()) {
             badmintonPane.setLayoutY(yCoor);
+            yCoor +=140;
+        }
+        if(addPane.isVisible()) {
+            addPane.setLayoutY(yCoor);
             yCoor +=140;
         }
 

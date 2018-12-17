@@ -56,6 +56,11 @@ public class Model {
     }
     public void setProfile(Profile profile) {
         this.profile = profile;
+        if(profile.getId() != Profile.ID_types.COORD) {
+            for(int i = 0; i < sports.length; i++)
+                sports[i].isRemoved = false;
+        }
+
     }
     public String[] getAchNames() { return this.achievementNames; }
     public String[] getAchDesc() { return this.achievementDesc; }
